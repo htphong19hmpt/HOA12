@@ -1,71 +1,2238 @@
-<!doctype html>
-<html lang="vi"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kiểm tra Hóa 12 - Ôn tập Chương 3</title>
-<script>
-window.MathJax={tex:{inlineMath:[['$','$'],['\\\\(','\\\\)']] },svg:{fontCache:'global'}};
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-<style>
-body{font-family:Arial,sans-serif;line-height:1.55;background:#f4f6f8;margin:0;color:#17202a}
-.container{max-width:1050px;margin:auto;background:#fff;padding:24px;box-shadow:0 2px 12px #bbb}
-h1{text-align:center;color:#123b63} h2{background:#eaf2f8;padding:10px;border-left:5px solid #2e86c1}
-.info{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin:15px 0} input[type=text],select{padding:8px;border:1px solid #aaa;border-radius:5px}
-.question{padding:15px;margin:12px 0;border:1px solid #ddd;border-radius:8px;background:#fcfcfc}
-.opts label{display:block;padding:7px;cursor:pointer} .tfitem{padding:10px 0;border-top:1px dashed #ccc}
-.tfitem select{margin-left:10px} .answer,.solution{display:none;margin-top:8px;padding:8px;background:#fff3cd;border-radius:5px}
-button{padding:10px 16px;border:0;border-radius:7px;cursor:pointer;margin:5px;background:#21618c;color:white}
-button.secondary{background:#666} button.submit{background:#148f77;font-size:17px}
-#result{display:none;padding:15px;background:#e8f8f5;margin-top:15px;border:1px solid #76d7c4}
-@media(max-width:700px){.info{grid-template-columns:1fr}}
-</style></head>
-<body><div class="container">
-<h1>ĐỀ KIỂM TRA HÓA HỌC 12 – ÔN TẬP CHƯƠNG 3</h1>
-<p><b>Chủ đề:</b> Hợp chất chứa nitrogen (Amine – Amino acid – Peptide – Protein)</p>
-<div class="info"><label>Họ tên học sinh:<input id="student" type="text"></label><label>Lớp:<input id="class" type="text"></label><label>STT:<input id="stt" type="text"></label></div>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ĐỀ KIỂM TRA HÓA HỌC 12 — CHƯƠNG 3 (BÀI 8 – BÀI 11)</title>
+  
+  <!-- Thư viện KaTeX hiển thị công thức LaTeX trong cặp $...$ -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" 
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$', right: '$', display: false}]});"></script>
 
-<h2>Phần I. Trắc nghiệm – 12 câu, chọn 1 đáp án</h2><div class="question"><b>Câu 1.</b> Amine là hợp chất được tạo thành khi thay thế nguyên tử hydrogen trong phân tử $NH_3$ bằng:<div class="opts"><label><input type="radio" name="mcq1" value="0"> <span>A. Nhóm hydroxyl (-OH)</span></label><label><input type="radio" name="mcq1" value="1"> <span>B. Gốc hydrocarbon</span></label><label><input type="radio" name="mcq1" value="2"> <span>C. Nguyên tử halogen</span></label><label><input type="radio" name="mcq1" value="3"> <span>D. Nhóm carboxyl (-COOH)</span></label></div><div class="solution" id="sol_mcq_1"><b>Đáp án:</b> B. Amine được tạo thành khi thay thế một hay nhiều H trong $NH_3$ bằng gốc hydrocarbon.</div></div><div class="question"><b>Câu 2.</b> Hợp chất hữu cơ tạp chức trong phân tử chứa đồng thời nhóm amino ($-NH_2$) và nhóm carboxyl ($-COOH$) là:<div class="opts"><label><input type="radio" name="mcq2" value="0"> <span>A. Amine</span></label><label><input type="radio" name="mcq2" value="1"> <span>B. Ester</span></label><label><input type="radio" name="mcq2" value="2"> <span>C. Amino acid</span></label><label><input type="radio" name="mcq2" value="3"> <span>D. Alcohol</span></label></div><div class="solution" id="sol_mcq_2"><b>Đáp án:</b> C. Amino acid chứa đồng thời nhóm $-NH_2$ và $-COOH$.</div></div><div class="question"><b>Câu 3.</b> Các đơn vị $\alpha$-amino acid trong phân tử peptide liên kết với nhau qua loại liên kết nào?<div class="opts"><label><input type="radio" name="mcq3" value="0"> <span>A. Liên kết glycoside</span></label><label><input type="radio" name="mcq3" value="1"> <span>B. Liên kết peptide</span></label><label><input type="radio" name="mcq3" value="2"> <span>C. Liên kết ester</span></label><label><input type="radio" name="mcq3" value="3"> <span>D. Liên kết ionic</span></label></div><div class="solution" id="sol_mcq_3"><b>Đáp án:</b> B. Các đơn vị $\alpha$-amino acid nối với nhau bằng liên kết peptide.</div></div><div class="question"><b>Câu 4.</b> Protein đơn giản là hợp chất cao phân tử mà khi thủy phân hoàn toàn chỉ thu được hỗn hợp các:<div class="opts"><label><input type="radio" name="mcq4" value="0"> <span>A. Carboxylic acid</span></label><label><input type="radio" name="mcq4" value="1"> <span>B. $\alpha$-amino acid</span></label><label><input type="radio" name="mcq4" value="2"> <span>C. Monosaccharide</span></label><label><input type="radio" name="mcq4" value="3"> <span>D. Amine bậc một</span></label></div><div class="solution" id="sol_mcq_4"><b>Đáp án:</b> B. Protein đơn giản khi thủy phân hoàn toàn cho hỗn hợp các $\alpha$-amino acid.</div></div><div class="question"><b>Câu 5.</b> Ở điều kiện thường, amine nào sau đây tồn tại ở trạng thái khí và có mùi khai?<div class="opts"><label><input type="radio" name="mcq5" value="0"> <span>A. Methylamine</span></label><label><input type="radio" name="mcq5" value="1"> <span>B. Aniline</span></label><label><input type="radio" name="mcq5" value="2"> <span>C. Glycine</span></label><label><input type="radio" name="mcq5" value="3"> <span>D. Alanine</span></label></div><div class="solution" id="sol_mcq_5"><b>Đáp án:</b> A. Methylamine là chất khí, có mùi khai ở điều kiện thường.</div></div><div class="question"><b>Câu 6.</b> Hầu hết các amino acid là chất rắn, có nhiệt độ nóng chảy cao và dễ tan trong nước do chúng tồn tại chủ yếu ở dạng:<div class="opts"><label><input type="radio" name="mcq6" value="0"> <span>A. Phân tử trung hòa</span></label><label><input type="radio" name="mcq6" value="1"> <span>B. Ion lưỡng cực</span></label><label><input type="radio" name="mcq6" value="2"> <span>C. Cation đơn giản</span></label><label><input type="radio" name="mcq6" value="3"> <span>D. Anion đơn giản</span></label></div><div class="solution" id="sol_mcq_6"><b>Đáp án:</b> B. Amino acid tồn tại chủ yếu ở dạng ion lưỡng cực.</div></div><div class="question"><b>Câu 7.</b> Chất nào sau đây là chất lỏng, ít tan trong nước, để lâu trong không khí bị chuyển sang màu nâu đen?<div class="opts"><label><input type="radio" name="mcq7" value="0"> <span>A. Methylamine</span></label><label><input type="radio" name="mcq7" value="1"> <span>B. Aniline</span></label><label><input type="radio" name="mcq7" value="2"> <span>C. Glutamic acid</span></label><label><input type="radio" name="mcq7" value="3"> <span>D. Ethylamine</span></label></div><div class="solution" id="sol_mcq_7"><b>Đáp án:</b> B. Aniline là chất lỏng, ít tan trong nước và để lâu trong không khí chuyển nâu đen.</div></div><div class="question"><b>Câu 8.</b> Thuốc thử nào sau đây được dùng để nhận biết Aniline nhờ sự xuất hiện của kết tủa màu trắng?<div class="opts"><label><input type="radio" name="mcq8" value="0"> <span>A. Dung dịch $NaOH$</span></label><label><input type="radio" name="mcq8" value="1"> <span>B. Dung dịch $HCl$</span></label><label><input type="radio" name="mcq8" value="2"> <span>C. Nước bromine</span></label><label><input type="radio" name="mcq8" value="3"> <span>D. Dung dịch $Cu(OH)_2$</span></label></div><div class="solution" id="sol_mcq_8"><b>Đáp án:</b> C. Aniline phản ứng với nước bromine tạo kết tủa trắng 2,4,6-tribromoaniline.</div></div><div class="question"><b>Câu 9.</b> Phản ứng màu biuret ($Cu(OH)_2$ trong môi trường kiềm) dùng để nhận biết nhóm chất nào sau đây (tạo dung dịch màu tím đặc trưng)?<div class="opts"><label><input type="radio" name="mcq9" value="0"> <span>A. Dipeptide và amine</span></label><label><input type="radio" name="mcq9" value="1"> <span>B. Tripeptide trở lên và protein</span></label><label><input type="radio" name="mcq9" value="2"> <span>C. Monosaccharide và disaccharide</span></label><label><input type="radio" name="mcq9" value="3"> <span>D. Alcohol đa chức và aldehyde</span></label></div><div class="solution" id="sol_mcq_9"><b>Đáp án:</b> B. Phản ứng màu biuret cho màu tím với tripeptide trở lên và protein.</div></div><div class="question"><b>Câu 10.</b> Loại tơ nào sau đây được tạo thành từ phản ứng trùng ngưng các $\epsilon$-amino acid (như 6-aminohexanoic acid)?<div class="opts"><label><input type="radio" name="mcq10" value="0"> <span>A. Tơ visco</span></label><label><input type="radio" name="mcq10" value="1"> <span>B. Tơ capron (nylon-6)</span></label><label><input type="radio" name="mcq10" value="2"> <span>C. Tơ nitron</span></label><label><input type="radio" name="mcq10" value="3"> <span>D. Tơ acetate</span></label></div><div class="solution" id="sol_mcq_10"><b>Đáp án:</b> B. 6-aminohexanoic acid trùng ngưng tạo tơ capron (nylon-6).</div></div><div class="question"><b>Câu 11.</b> Hiện tượng đông tụ protein xảy ra khi đun nóng hoặc khi cho thêm các tác nhân nào sau đây?<div class="opts"><label><input type="radio" name="mcq11" value="0"> <span>A. Acid, base hoặc ion kim loại nặng</span></label><label><input type="radio" name="mcq11" value="1"> <span>B. Dung dịch $NaCl$ loãng ở nhiệt độ phòng</span></label><label><input type="radio" name="mcq11" value="2"> <span>C. Nước cất ở $25^\circ C$</span></label><label><input type="radio" name="mcq11" value="3"> <span>D. Khí nitrogen tinh khiết</span></label></div><div class="solution" id="sol_mcq_11"><b>Đáp án:</b> A. Protein có thể đông tụ khi đun nóng hoặc tác dụng với acid, base hay ion kim loại nặng.</div></div><div class="question"><b>Câu 12.</b> Aniline được dùng làm nguyên liệu quan trọng trong công nghiệp để tổng hợp nhóm sản phẩm nào sau đây?<div class="opts"><label><input type="radio" name="mcq12" value="0"> <span>A. Phẩm nhuộm azo và dược phẩm (paracetamol, sulfonamide)</span></label><label><input type="radio" name="mcq12" value="1"> <span>B. Chất bảo quản đường ăn</span></label><label><input type="radio" name="mcq12" value="2"> <span>C. Phân bón đạm urê</span></label><label><input type="radio" name="mcq12" value="3"> <span>D. Xà phòng giặt rửa</span></label></div><div class="solution" id="sol_mcq_12"><b>Đáp án:</b> A. Aniline là nguyên liệu quan trọng để sản xuất phẩm nhuộm azo và một số dược phẩm.</div></div>
-<h2>Phần II. Trắc nghiệm Đúng/Sai – 2 câu</h2><div class="question"><b>Câu 1.</b> Xét các phát biểu về khái niệm và đặc điểm cấu tạo của các hợp chất chứa nitrogen.<div class="tfitem">a) Amine là hợp chất được tạo thành khi thay thế một hay nhiều nguyên tử H trong phân tử $NH_3$ bằng gốc hydrocarbon.<select name="tf1_0"><option value="">-- chọn --</option><option value="true">Đúng</option><option value="false">Sai</option></select><span class="answer" id="ans_tf_1_0">Đáp án: Đúng</span></div><div class="tfitem">b) Amino acid là hợp chất hữu cơ tạp chức chứa đồng thời nhóm $-NH_2$ và nhóm $-COOH$.<select name="tf1_1"><option value="">-- chọn --</option><option value="true">Đúng</option><option value="false">Sai</option></select><span class="answer" id="ans_tf_1_1">Đáp án: Đúng</span></div><div class="tfitem">c) Peptide là hợp chất chứa từ 2 đến 50 đơn vị $\beta$-amino acid liên kết với nhau bằng liên kết peptide.<select name="tf1_2"><option value="">-- chọn --</option><option value="true">Đúng</option><option value="false">Sai</option></select><span class="answer" id="ans_tf_1_2">Đáp án: Sai</span></div><div class="tfitem">d) Protein phức tạp gồm protein đơn giản kết hợp với phần “phi protein” như lipid, nucleic acid.<select name="tf1_3"><option value="">-- chọn --</option><option value="true">Đúng</option><option value="false">Sai</option></select><span class="answer" id="ans_tf_1_3">Đáp án: Đúng</span></div></div><div class="question"><b>Câu 2.</b> Xét tính chất hóa học đặc trưng của Amine và Amino acid.<div class="tfitem">a) Alkylamine làm xanh giấy quỳ tím ẩm, còn aniline không làm đổi màu quỳ tím do tính base rất yếu.<select name="tf2_0"><option value="">-- chọn --</option><option value="true">Đúng</option><option value="false">Sai</option></select><span class="answer" id="ans_tf_2_0">Đáp án: Đúng</span></div><div class="tfitem">b) Nhỏ nước bromine vào dung dịch aniline thu được kết tủa màu vàng.<select name="tf2_1"><option value="">-- chọn --</option><option value="true">Đúng</option><option value="false">Sai</option></select><span class="answer" id="ans_tf_2_1">Đáp án: Sai</span></div><div class="tfitem">c) Amino acid có tính chất lưỡng tính, phản ứng được với cả dung dịch acid mạnh và dung dịch base mạnh.<select name="tf2_2"><option value="">-- chọn --</option><option value="true">Đúng</option><option value="false">Sai</option></select><span class="answer" id="ans_tf_2_2">Đáp án: Đúng</span></div><div class="tfitem">d) Phản ứng trùng ngưng các $\epsilon$-amino acid tạo ra tơ polyamide và tách ra các phân tử nước.<select name="tf2_3"><option value="">-- chọn --</option><option value="true">Đúng</option><option value="false">Sai</option></select><span class="answer" id="ans_tf_2_3">Đáp án: Đúng</span></div></div>
-<h2>Phần III. Câu trả lời ngắn – 6 câu</h2><div class="question"><b>Câu 1.</b> Viết tên thông thường của $\alpha$-amino acid có công thức cấu tạo $H_2N-CH_2-COOH$.<input class="shortans" type="text" name="short1" placeholder="Nhập câu trả lời"><div class="solution" id="sol_short_1"><b>Đáp án:</b> Glycine. Cũng chấp nhận: Gly.</div></div><div class="question"><b>Câu 2.</b> Tên gọi của loại liên kết trực tiếp nối các đơn vị $\alpha$-amino acid trong phân tử peptide là gì?<input class="shortans" type="text" name="short2" placeholder="Nhập câu trả lời"><div class="solution" id="sol_short_2"><b>Đáp án:</b> Liên kết peptide. </div></div><div class="question"><b>Câu 3.</b> Nhỏ dung dịch $Cu(OH)_2$ trong môi trường kiềm vào ống nghiệm chứa dung dịch lòng trắng trứng, phức chất sinh ra có màu đặc trưng gì?<input class="shortans" type="text" name="short3" placeholder="Nhập câu trả lời"><div class="solution" id="sol_short_3"><b>Đáp án:</b> Màu tím. Cũng chấp nhận: dung dịch màu tím đặc trưng.</div></div><div class="question"><b>Câu 4.</b> Khi cho aniline tác dụng với dung dịch nước bromine dư, 1 mol aniline phản ứng tối đa với bao nhiêu mol $Br_2$?<input class="shortans" type="text" name="short4" placeholder="Nhập câu trả lời"><div class="solution" id="sol_short_4"><b>Đáp án:</b> 3. Đơn vị mol; phương trình: $C_6H_5NH_2+3Br_2\rightarrow C_6H_2Br_3NH_2\downarrow+3HBr$.</div></div><div class="question"><b>Câu 5.</b> Cho 0,1 mol Alanine ($H_2N-CH(CH_3)-COOH$) tác dụng hoàn toàn với dung dịch $NaOH$ dư. Khối lượng muối $H_2N-CH(CH_3)-COONa$ thu được là bao nhiêu gam?<input class="shortans" type="text" name="short5" placeholder="Nhập câu trả lời"><div class="solution" id="sol_short_5"><b>Đáp án:</b> 11,1. Gam.</div></div><div class="question"><b>Câu 6.</b> Thủy phân hoàn toàn 0,1 mol tetrapeptide Gly-Ala-Gly-Val trong dung dịch $NaOH$ dư, đun nóng. Số mol $NaOH$ đã tham gia phản ứng là bao nhiêu?<input class="shortans" type="text" name="short6" placeholder="Nhập câu trả lời"><div class="solution" id="sol_short_6"><b>Đáp án:</b> 0,4. mol; lấy từ Câu 26 trong PDF, đáp án C.</div></div>
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-hover: #0369a1;
+      --bg: #f0f7f6;
+      --card: #ffffff;
+      --text: #1e293b;
+      --border: #cbd5e1;
+      --danger: #ef4444;
+      --purple: #8b5cf6;
+      --purple-hover: #7c3aed;
+      --excel: #107c41;
+      --excel-hover: #0b5a2f;
+    }
 
-<div>
-<button onclick="toggleAnswers()">👁 Xem đáp án / Ẩn đáp án</button>
-<button onclick="playFeedback()">🔊 Âm thanh phản hồi</button>
-<button class="submit" onclick="submitQuiz()">📤 Nộp bài – Xuất Excel (.xlsx)</button>
-</div>
-<div id="result"></div>
-<p><small>Nội dung được biên soạn từ PDF “Bài 11 - Ôn tập Chương 3 (Hóa học 12)”. Công thức hiển thị bằng LaTeX qua MathJax.</small></p>
-</div>
-<script>
-let answersVisible=false;
-function toggleAnswers(){
- answersVisible=!answersVisible;
- document.querySelectorAll('.solution,.answer').forEach(e=>e.style.display=answersVisible?'block':'none');
- speak(answersVisible?'Đã hiện đáp án và lời giải. Bấm lần nữa để ẩn.':'Đã ẩn đáp án.');
-}
-function speak(t){ if('speechSynthesis' in window){speechSynthesis.cancel(); let u=new SpeechSynthesisUtterance(t);u.lang='vi-VN';u.rate=1; speechSynthesis.speak(u);}}
-function playFeedback(){speak('Chúc em làm bài tốt. Khi chọn hoặc nhập xong, hãy bấm Nộp bài để chấm và xuất file Excel.');}
-function norm(s){return (s||'').toLowerCase().trim().replace(/\s+/g,' ').replace(',', '.');}
-function shortCorrect(i,v){
- const a=[['glycine','gly'],['liên kết peptide','lien ket peptide','peptide'],['màu tím','tim'],['3','3 mol'],['11.1','11,1','11,1 gam'],['0.4','0,4','0,4 mol']];
- const n=norm(v); return a[i-1].some(x=>norm(x)===n);
-}
-function submitQuiz(){
- let rows=[], score=0,total=20;
- const name=document.getElementById('student').value, cls=document.getElementById('class').value, stt=document.getElementById('stt').value;
- for(let i=1;i<=12;i++){let el=document.querySelector('input[name="mcq'+i+'"]:checked');let v=el?+el.value:-1;let ok=v===[1,2,1,1,0,1,1,2,1,1,0,0][i-1];if(ok)score++;rows.push(['Phần I','Câu '+i,el?String.fromCharCode(65+v):'Chưa trả lời',ok?'Đúng':'Sai']);}
- const tfAns=[[true, true, false, true], [true, false, true, true]];
- for(let i=1;i<=2;i++) for(let j=0;j<4;j++){let el=document.querySelector('[name="tf'+i+'_'+j+'"]');let v=el?el.value:'';let ok=v!=='' && (v==='true')===tfAns[i-1][j];if(ok)score++;rows.push(['Phần II','Câu '+i+'.'+String.fromCharCode(97+j),v?((v==='true')?'Đúng':'Sai'):'Chưa trả lời',ok?'Đúng':'Sai']);}
- for(let i=1;i<=6;i++){let v=document.querySelector('[name="short'+i+'"]').value;let ok=shortCorrect(i,v);if(ok)score++;rows.push(['Phần III','Câu '+i,v,ok?'Đúng':'Sai']);}
- let pct=(score/total*100).toFixed(1);
- document.getElementById('result').style.display='block';
- document.getElementById('result').innerHTML='<b>Kết quả: '+score+'/'+total+' câu ('+pct+'%)</b><br>Họ tên: '+escapeHtml(name)+' | Lớp: '+escapeHtml(cls)+' | STT: '+escapeHtml(stt);
- speak('Em đạt '+score+' trên '+total+' câu. Kết quả là '+pct+' phần trăm. '+(score>=10?'Tiếp tục phát huy nhé!':'Em hãy xem lại lời giải và luyện tập thêm nhé!'));
- const data=[['BÀI KIỂM TRA HÓA 12 - ÔN TẬP CHƯƠNG 3'],['Họ tên',name],['Lớp',cls],['STT',stt],['Điểm số',score+'/'+total],['Tỷ lệ',pct+'%'],[],['Phần','Câu','Câu trả lời','Kết quả'],...rows];
- const ws=XLSX.utils.aoa_to_sheet(data); ws['!cols']=[{wch:15},{wch:14},{wch:50},{wch:14}];
- const wb=XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb,ws,'Kết quả');
- XLSX.writeFile(wb,'Ket_qua_Hoa12_Chuong3.xlsx');
-}
-function escapeHtml(s){return (s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));}
-</script></body></html>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 13pt;
+      padding: 20px 10px;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(2, 132, 199, 0.08);
+      border: 1px solid #e2e8f0;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 25px;
+      border-bottom: 2px solid #bae6fd;
+      padding-bottom: 15px;
+    }
+
+    .header h1 {
+      font-size: 18pt;
+      color: var(--primary);
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .header p {
+      font-size: 13pt;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .big-section-title {
+      font-size: 15pt;
+      color: #ffffff;
+      background-color: var(--primary);
+      padding: 12px 18px;
+      border-radius: 8px;
+      margin: 35px 0 20px 0;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .lesson-title {
+      font-size: 14pt;
+      color: #0369a1;
+      background-color: #e0f2fe;
+      padding: 8px 15px;
+      border-radius: 6px;
+      margin: 25px 0 15px 0;
+      font-weight: bold;
+      border-left: 5px solid var(--primary);
+    }
+
+    /* Thanh tiến độ dính phía trên */
+    .sticky-progress {
+      position: sticky;
+      top: 10px;
+      z-index: 100;
+      background: #ffffff;
+      padding: 12px 18px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid var(--border);
+    }
+
+    .progress-text {
+      font-size: 13pt;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .progress-text span {
+      color: var(--primary);
+      font-size: 14pt;
+    }
+
+    /* Khối thông tin học sinh */
+    .student-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      background: #f8fafc;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 13pt;
+      margin-bottom: 6px;
+      color: #0369a1;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 13pt;
+      outline: none;
+      background: #ffffff;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus {
+      border-color: var(--primary);
+    }
+
+    /* Thẻ câu hỏi */
+    .question-card {
+      margin-bottom: 22px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #ffffff;
+      transition: all 0.25s ease;
+    }
+
+    .question-card.unanswered-alert {
+      border: 2px solid var(--danger);
+      background-color: #fef2f2;
+    }
+
+    .question-title {
+      font-size: 13pt;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #0f172a;
+    }
+
+    .question-title span {
+      color: var(--primary);
+    }
+
+    .diagram-container {
+      text-align: center;
+      margin: 12px 0 16px 0;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option-label {
+      display: flex;
+      align-items: center;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13pt;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .option-label:hover {
+      background-color: #f0f9ff;
+      border-color: #7dd3fc;
+    }
+
+    .option-label input[type="radio"] {
+      margin-right: 12px;
+      transform: scale(1.2);
+      cursor: pointer;
+      accent-color: var(--primary);
+    }
+
+    .option-label.selected {
+      background-color: #e0f2fe;
+      border-color: var(--primary);
+      font-weight: 500;
+    }
+
+    /* Bảng Đúng/Sai */
+    .tf-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .tf-table td {
+      padding: 8px 10px;
+      border-bottom: 1px dashed var(--border);
+      font-size: 13pt;
+    }
+
+    .tf-actions {
+      display: flex;
+      gap: 15px;
+      justify-content: flex-end;
+      min-width: 160px;
+    }
+
+    .tf-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      user-select: none;
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    .tf-label input { accent-color: var(--primary); transform: scale(1.1); }
+    .tf-label.selected-true { background-color: #dcfce7; border-color: #22c55e; font-weight: bold; color: #15803d; }
+    .tf-label.selected-false { background-color: #fee2e2; border-color: #ef4444; font-weight: bold; color: #b91c1c; }
+
+    /* Ô nhập trả lời ngắn */
+    .short-input-box {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .short-input-box input {
+      flex: 1;
+      max-width: 450px;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 13pt;
+      outline: none;
+    }
+
+    .short-input-box input:focus {
+      border-color: var(--primary);
+    }
+
+    /* Nút nộp bài */
+    .submit-container {
+      text-align: center;
+      margin: 40px 0 20px 0;
+    }
+
+    .btn-submit {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 14px 45px;
+      font-size: 13pt;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-submit:hover { background: var(--primary-hover); }
+    .btn-submit:active { transform: scale(0.98); }
+
+    /* Khối kết quả */
+    #result-box {
+      display: none;
+      margin-top: 30px;
+      padding: 25px;
+      background: #f8fafc;
+      border: 2px dashed var(--primary);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    #result-box h3 { font-size: 16pt; margin-bottom: 10px; color: var(--primary); }
+
+    .score-badge {
+      display: inline-block;
+      font-size: 18pt;
+      font-weight: bold;
+      color: white;
+      background: var(--primary);
+      padding: 6px 24px;
+      border-radius: 30px;
+      margin: 12px 0;
+    }
+
+    .btn-group-action {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .btn-excel {
+      background: var(--excel);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 13pt;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(16, 124, 65, 0.25);
+      transition: background 0.2s, transform 0.1s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-excel:hover { background: var(--excel-hover); }
+
+    .btn-toggle-detail {
+      background: var(--purple);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 13pt;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(139, 92, 246, 0.25);
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-toggle-detail:hover { background: var(--purple-hover); }
+
+    /* Phần chi tiết đáp án */
+    .detail-section {
+      display: none;
+      margin-top: 30px;
+      border-top: 2px solid var(--border);
+      padding-top: 25px;
+    }
+
+    .detail-section h3 { margin-bottom: 15px; font-size: 14pt; color: #0f172a; }
+
+    .explanation-item {
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      background: #f8fafc;
+      border-left: 4px solid var(--primary);
+      border-radius: 4px;
+      font-size: 13pt;
+    }
+
+    .explanation-item strong { color: var(--primary); }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>ĐỀ KIỂM TRA MÔN HÓA HỌC 12</h1>
+      <p>CHƯƠNG 3: HỢP CHẤT CHỨA NITROGEN (ĐẦY ĐỦ 3 PHẦN: TRẮC NGHIỆM, ĐÚNG/SAI, TRẢ LỜI NGẮN)</p>
+    </div>
+
+    <!-- Thanh tiến độ -->
+    <div class="sticky-progress">
+      <div class="progress-text">Đã hoàn thành: <span id="answered-count">0</span> / 80 mục</div>
+      <div style="font-size: 12pt; color: #dc2626; font-weight: 500;">(Bắt buộc làm đủ 80 mục mới được nộp)</div>
+    </div>
+
+    <!-- Thông tin học sinh -->
+    <div class="student-info">
+      <div class="form-group">
+        <label for="fullname">Họ tên học sinh:</label>
+        <input type="text" id="fullname" placeholder="Nhập họ và tên..." required>
+      </div>
+      <div class="form-group">
+        <label for="classroom">Lớp:</label>
+        <input type="text" id="classroom" placeholder="Ví dụ: 12A1..." required>
+      </div>
+      <div class="form-group">
+        <label for="student-id">Stt:</label>
+        <input type="number" id="student-id" placeholder="Số thứ tự..." required>
+      </div>
+    </div>
+
+    <form id="quiz-form">
+
+      <!-- ========================================================================= -->
+      <!-- PHẦN I. TRẮC NGHIỆM 4 LỰA CHỌN (40 CÂU) -->
+      <!-- ========================================================================= -->
+      <div class="big-section-title">PHẦN I. TRẮC NGHIỆM 4 LỰA CHỌN (40 CÂU)</div>
+
+      <div class="lesson-title">BÀI 8: AMINE</div>
+      
+      <!-- Câu 1 -->
+      <div class="question-card" id="card-q1">
+        <div class="question-title"><span>Câu 1</span> (NB). Hợp chất nào sau đây thuộc loại amine bậc hai?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q1" value="A" onchange="handleSelect(this)"> A. $CH_3NH_2$.</label>
+          <label class="option-label"><input type="radio" name="q1" value="B" onchange="handleSelect(this)"> B. $CH_3NHCH_3$.</label>
+          <label class="option-label"><input type="radio" name="q1" value="C" onchange="handleSelect(this)"> C. $(CH_3)_3N$.</label>
+          <label class="option-label"><input type="radio" name="q1" value="D" onchange="handleSelect(this)"> D. $C_6H_5NH_2$.</label>
+        </div>
+      </div>
+
+      <!-- Câu 2 -->
+      <div class="question-card" id="card-q2">
+        <div class="question-title"><span>Câu 2</span> (NB). Theo danh pháp gốc – chức, hợp chất $CH_3CH_2NH_2$ có tên gọi là:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q2" value="A" onchange="handleSelect(this)"> A. Methanamine.</label>
+          <label class="option-label"><input type="radio" name="q2" value="B" onchange="handleSelect(this)"> B. Ethanamine.</label>
+          <label class="option-label"><input type="radio" name="q2" value="C" onchange="handleSelect(this)"> C. Ethylamine.</label>
+          <label class="option-label"><input type="radio" name="q2" value="D" onchange="handleSelect(this)"> D. Methylamine.</label>
+        </div>
+      </div>
+
+      <!-- Câu 3 -->
+      <div class="question-card" id="card-q3">
+        <div class="question-title"><span>Câu 3</span> (NB). Aniline ($C_6H_5NH_2$) có trạng thái và độ tan trong nước ở điều kiện thường là:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q3" value="A" onchange="handleSelect(this)"> A. Chất khí, tan tốt trong nước.</label>
+          <label class="option-label"><input type="radio" name="q3" value="B" onchange="handleSelect(this)"> B. Chất lỏng, ít tan trong nước.</label>
+          <label class="option-label"><input type="radio" name="q3" value="C" onchange="handleSelect(this)"> C. Chất rắn, không tan trong nước.</label>
+          <label class="option-label"><input type="radio" name="q3" value="D" onchange="handleSelect(this)"> D. Chất lỏng, tan vô hạn trong nước.</label>
+        </div>
+      </div>
+
+      <!-- Câu 4 -->
+      <div class="question-card" id="card-q4">
+        <div class="question-title"><span>Câu 4</span> (NB). Cho vài giọt dung dịch methylamine vào giấy quỳ tím, hiện tượng quan sát được là:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q4" value="A" onchange="handleSelect(this)"> A. Quỳ tím hóa đỏ.</label>
+          <label class="option-label"><input type="radio" name="q4" value="B" onchange="handleSelect(this)"> B. Quỳ tím hóa xanh.</label>
+          <label class="option-label"><input type="radio" name="q4" value="C" onchange="handleSelect(this)"> C. Quỳ tím bị mất màu.</label>
+          <label class="option-label"><input type="radio" name="q4" value="D" onchange="handleSelect(this)"> D. Quỳ tím không đổi màu.</label>
+        </div>
+      </div>
+
+      <!-- Câu 5 -->
+      <div class="question-card" id="card-q5">
+        <div class="question-title"><span>Câu 5</span> (TH). Thuốc thử dùng để nhận biết dung dịch aniline nhờ tạo kết tủa màu trắng là:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q5" value="A" onchange="handleSelect(this)"> A. Dung dịch $NaOH$.</label>
+          <label class="option-label"><input type="radio" name="q5" value="B" onchange="handleSelect(this)"> B. Dung dịch $HCl$.</label>
+          <label class="option-label"><input type="radio" name="q5" value="C" onchange="handleSelect(this)"> C. Dung dịch $FeCl_3$.</label>
+          <label class="option-label"><input type="radio" name="q5" value="D" onchange="handleSelect(this)"> D. Nước bromine.</label>
+        </div>
+      </div>
+
+      <!-- Câu 6 -->
+      <div class="question-card" id="card-q6">
+        <div class="question-title"><span>Câu 6</span> (TH). Khi cho ethylamine tác dụng với dung dịch $CuSO_4$ dư, hiện tượng thu được là:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q6" value="A" onchange="handleSelect(this)"> A. Xuất hiện kết tủa màu nâu đỏ $Fe(OH)_3$.</label>
+          <label class="option-label"><input type="radio" name="q6" value="B" onchange="handleSelect(this)"> B. Xuất hiện kết tủa trắng không tan.</label>
+          <label class="option-label"><input type="radio" name="q6" value="C" onchange="handleSelect(this)"> C. Tạo thành dung dịch phức chất màu xanh lam.</label>
+          <label class="option-label"><input type="radio" name="q6" value="D" onchange="handleSelect(this)"> D. Giải phóng khí màu nâu đỏ $NO_2$.</label>
+        </div>
+      </div>
+
+      <!-- Câu 7 -->
+      <div class="question-card" id="card-q7">
+        <div class="question-title"><span>Câu 7</span> (TH). Cho alkylamine bậc một tác dụng với nitrous acid ($HONO$) ở nhiệt độ thường, sản phẩm khí sinh ra là:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q7" value="A" onchange="handleSelect(this)"> A. $NH_3$.</label>
+          <label class="option-label"><input type="radio" name="q7" value="B" onchange="handleSelect(this)"> B. $N_2$.</label>
+          <label class="option-label"><input type="radio" name="q7" value="C" onchange="handleSelect(this)"> C. $NO_2$.</label>
+          <label class="option-label"><input type="radio" name="q7" value="D" onchange="handleSelect(this)"> D. $NO$.</label>
+        </div>
+      </div>
+
+      <!-- Câu 8 -->
+      <div class="question-card" id="card-q8">
+        <div class="question-title"><span>Câu 8</span> (VD). Khử 1 mol nitrobenzene ($C_6H_5NO_2$) bằng $Fe$ và dung dịch $HCl$, sản phẩm thu được gồm $1\text{ mol } C_6H_5NH_2$ và bao nhiêu mol $H_2O$?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q8" value="A" onchange="handleSelect(this)"> A. 1 mol.</label>
+          <label class="option-label"><input type="radio" name="q8" value="B" onchange="handleSelect(this)"> B. 2 mol.</label>
+          <label class="option-label"><input type="radio" name="q8" value="C" onchange="handleSelect(this)"> C. 3 mol.</label>
+          <label class="option-label"><input type="radio" name="q8" value="D" onchange="handleSelect(this)"> D. 4 mol.</label>
+        </div>
+      </div>
+
+      <!-- Câu 9 -->
+      <div class="question-card" id="card-q9">
+        <div class="question-title"><span>Câu 9</span> (VD). Nhỏ từ từ dung dịch methylamine vào ống nghiệm chứa dung dịch $FeCl_3$, hiện tượng xảy ra là:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q9" value="A" onchange="handleSelect(this)"> A. Xuất hiện kết tủa màu nâu đỏ $Fe(OH)_3$.</label>
+          <label class="option-label"><input type="radio" name="q9" value="B" onchange="handleSelect(this)"> B. Không có hiện tượng gì.</label>
+          <label class="option-label"><input type="radio" name="q9" value="C" onchange="handleSelect(this)"> C. Xuất hiện kết tủa màu xanh lam.</label>
+          <label class="option-label"><input type="radio" name="q9" value="D" onchange="handleSelect(this)"> D. Xuất hiện kết tủa màu trắng.</label>
+        </div>
+      </div>
+
+      <!-- Câu 10 -->
+      <div class="question-card" id="card-q10">
+        <div class="question-title"><span>Câu 10</span> (VDC). Cho chuỗi alkyl hóa nối tiếp $NH_3 \xrightarrow{+CH_3I} X \xrightarrow{+CH_3I} Y \xrightarrow{+CH_3I} Z$. Tên gốc – chức của hợp chất $Z$ là:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q10" value="A" onchange="handleSelect(this)"> A. Methylamine.</label>
+          <label class="option-label"><input type="radio" name="q10" value="B" onchange="handleSelect(this)"> B. Dimethylamine.</label>
+          <label class="option-label"><input type="radio" name="q10" value="C" onchange="handleSelect(this)"> C. Trimethylamine.</label>
+          <label class="option-label"><input type="radio" name="q10" value="D" onchange="handleSelect(this)"> D. Tetramethylammonium.</label>
+        </div>
+      </div>
+
+      <div class="lesson-title">BÀI 9: AMINO ACID VÀ PEPTIDE</div>
+
+      <!-- Câu 11 -->
+      <div class="question-card" id="card-q11">
+        <div class="question-title"><span>Câu 11</span> (NB). Amino acid là hợp chất hữu cơ tạp chức trong phân tử chứa đồng thời hai nhóm chức nào?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q11" value="A" onchange="handleSelect(this)"> A. Nhóm hydroxyl và nhóm carboxyl.</label>
+          <label class="option-label"><input type="radio" name="q11" value="B" onchange="handleSelect(this)"> B. Nhóm amino và nhóm carboxyl.</label>
+          <label class="option-label"><input type="radio" name="q11" value="C" onchange="handleSelect(this)"> C. Nhóm aldehyde và nhóm amino.</label>
+          <label class="option-label"><input type="radio" name="q11" value="D" onchange="handleSelect(this)"> D. Nhóm ester và nhóm hydroxyl.</label>
+        </div>
+      </div>
+
+      <!-- Câu 12 -->
+      <div class="question-card" id="card-q12">
+        <div class="question-title"><span>Câu 12</span> (NB). Trong phân tử tinh thể, các amino acid tồn tại chủ yếu ở dạng:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q12" value="A" onchange="handleSelect(this)"> A. Phân tử trung hòa.</label>
+          <label class="option-label"><input type="radio" name="q12" value="B" onchange="handleSelect(this)"> B. Ion lưỡng cực.</label>
+          <label class="option-label"><input type="radio" name="q12" value="C" onchange="handleSelect(this)"> C. Cation đơn giản.</label>
+          <label class="option-label"><input type="radio" name="q12" value="D" onchange="handleSelect(this)"> D. Anion đơn giản.</label>
+        </div>
+      </div>
+
+      <!-- Câu 13 -->
+      <div class="question-card" id="card-q13">
+        <div class="question-title"><span>Câu 13</span> (NB). Công thức cấu tạo của Glycine (Gly) là:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q13" value="A" onchange="handleSelect(this)"> A. $H_2N-CH_2-COOH$.</label>
+          <label class="option-label"><input type="radio" name="q13" value="B" onchange="handleSelect(this)"> B. $H_2N-CH(CH_3)-COOH$.</label>
+          <label class="option-label"><input type="radio" name="q13" value="C" onchange="handleSelect(this)"> C. $HOOC-[CH_2]_2-CH(NH_2)-COOH$.</label>
+          <label class="option-label"><input type="radio" name="q13" value="D" onchange="handleSelect(this)"> D. $H_2N-[CH_2]_4-CH(NH_2)-COOH$.</label>
+        </div>
+      </div>
+
+      <!-- Câu 14 -->
+      <div class="question-card" id="card-q14">
+        <div class="question-title"><span>Câu 14</span> (NB). Khái niệm liên kết peptide là liên kết giữa hai đơn vị $\alpha$-amino acid có dạng:</div>
+        
+        <div class="diagram-container">
+          <svg width="100%" height="70" viewBox="0 0 360 70" style="max-width: 360px; display: inline-block;">
+            <rect x="10" y="15" width="85" height="40" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+            <text x="52" y="40" font-size="12" fill="#0369a1" font-weight="bold" text-anchor="middle">Đơn vị &alpha; 1</text>
+            <rect x="110" y="12" width="140" height="46" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+            <text x="180" y="34" font-size="13" fill="#92400e" font-weight="bold" text-anchor="middle">- CO - NH -</text>
+            <text x="180" y="50" font-size="9" fill="#b45309" text-anchor="middle">(Liên kết peptide)</text>
+            <rect x="265" y="15" width="85" height="40" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+            <text x="307" y="40" font-size="12" fill="#0369a1" font-weight="bold" text-anchor="middle">Đơn vị &alpha; 2</text>
+          </svg>
+        </div>
+
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q14" value="A" onchange="handleSelect(this)"> A. $-CO-O-$.</label>
+          <label class="option-label"><input type="radio" name="q14" value="B" onchange="handleSelect(this)"> B. $-CO-NH-$.</label>
+          <label class="option-label"><input type="radio" name="q14" value="C" onchange="handleSelect(this)"> C. $-NH-O-$.</label>
+          <label class="option-label"><input type="radio" name="q14" value="D" onchange="handleSelect(this)"> D. $-CH_2-NH-$.</label>
+        </div>
+      </div>
+
+      <!-- Câu 15 -->
+      <div class="question-card" id="card-q15">
+        <div class="question-title"><span>Câu 15</span> (TH). Amino acid nào sau đây có hai nhóm $-COOH$ và một nhóm $-NH_2$, làm quỳ tím chuyển sang màu đỏ?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q15" value="A" onchange="handleSelect(this)"> A. Glycine.</label>
+          <label class="option-label"><input type="radio" name="q15" value="B" onchange="handleSelect(this)"> B. Alanine.</label>
+          <label class="option-label"><input type="radio" name="q15" value="C" onchange="handleSelect(this)"> C. Lysine.</label>
+          <label class="option-label"><input type="radio" name="q15" value="D" onchange="handleSelect(this)"> D. Glutamic acid.</label>
+        </div>
+      </div>
+
+      <!-- Câu 16 -->
+      <div class="question-card" id="card-q16">
+        <div class="question-title"><span>Câu 16</span> (TH). Ở $pH \sim 6$, Glycine tồn tại chủ yếu dưới dạng ion lưỡng cực $H_3\overset{+}{N}-CH_2-COO^-$. Khi đặt trong điện trường ở môi trường acid ($pH < 6$), Glycine nhận proton trở thành cation và di chuyển về:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q16" value="A" onchange="handleSelect(this)"> A. Cực dương (+).</label>
+          <label class="option-label"><input type="radio" name="q16" value="B" onchange="handleSelect(this)"> B. Cực âm (-).</label>
+          <label class="option-label"><input type="radio" name="q16" value="C" onchange="handleSelect(this)"> C. Không di chuyển.</label>
+          <label class="option-label"><input type="radio" name="q16" value="D" onchange="handleSelect(this)"> D. Đảo chiều liên tục.</label>
+        </div>
+      </div>
+
+      <!-- Câu 17 -->
+      <div class="question-card" id="card-q17">
+        <div class="question-title"><span>Câu 17</span> (TH). Thuốc thử được dùng để nhận biết các peptide có từ hai liên kết peptide trở lên (tripeptide trở lên) tạo dung dịch màu tím đặc trưng là:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q17" value="A" onchange="handleSelect(this)"> A. Dung dịch $AgNO_3/NH_3$.</label>
+          <label class="option-label"><input type="radio" name="q17" value="B" onchange="handleSelect(this)"> B. Dung dịch $Cu(OH)_2$ trong môi trường kiềm.</label>
+          <label class="option-label"><input type="radio" name="q17" value="C" onchange="handleSelect(this)"> C. Nước bromine.</label>
+          <label class="option-label"><input type="radio" name="q17" value="D" onchange="handleSelect(this)"> D. Dung dịch $FeCl_3$.</label>
+        </div>
+      </div>
+
+      <!-- Câu 18 -->
+      <div class="question-card" id="card-q18">
+        <div class="question-title"><span>Câu 18</span> (VD). Phản ứng trùng ngưng $n\text{ mol } \varepsilon$-aminocaproic acid ($6$-aminohexanoic acid) sinh ra $1\text{ mol}$ polycaproamide (capron) và bao nhiêu mol $H_2O$?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q18" value="A" onchange="handleSelect(this)"> A. $n\text{ mol}$.</label>
+          <label class="option-label"><input type="radio" name="q18" value="B" onchange="handleSelect(this)"> B. $2n\text{ mol}$.</label>
+          <label class="option-label"><input type="radio" name="q18" value="C" onchange="handleSelect(this)"> C. $1\text{ mol}$.</label>
+          <label class="option-label"><input type="radio" name="q18" value="D" onchange="handleSelect(this)"> D. $(n-1)\text{ mol}$.</label>
+        </div>
+      </div>
+
+      <!-- Câu 19 -->
+      <div class="question-card" id="card-q19">
+        <div class="question-title"><span>Câu 19</span> (VD). Thủy phân không hoàn toàn tetrapeptide Gly-Tyr-Val-Ala, thu được tối đa bao nhiêu loại dipeptide khác nhau?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q19" value="A" onchange="handleSelect(this)"> A. 2.</label>
+          <label class="option-label"><input type="radio" name="q19" value="B" onchange="handleSelect(this)"> B. 3.</label>
+          <label class="option-label"><input type="radio" name="q19" value="C" onchange="handleSelect(this)"> C. 4.</label>
+          <label class="option-label"><input type="radio" name="q19" value="D" onchange="handleSelect(this)"> D. 5.</label>
+        </div>
+      </div>
+
+      <!-- Câu 20 -->
+      <div class="question-card" id="card-q20">
+        <div class="question-title"><span>Câu 20</span> (VDC). Đun nóng hỗn hợp Glycine và Ethanol có mặt $H_2SO_4$ đặc ở $80-90^\circ C$ trong 2-3 giờ, thu được ester có công thức là:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q20" value="A" onchange="handleSelect(this)"> A. $H_2N-CH_2-COOCH_3$.</label>
+          <label class="option-label"><input type="radio" name="q20" value="B" onchange="handleSelect(this)"> B. $H_2N-CH_2-COOCH_2CH_3$.</label>
+          <label class="option-label"><input type="radio" name="q20" value="C" onchange="handleSelect(this)"> C. $CH_3COOCH_2CH_3$.</label>
+          <label class="option-label"><input type="radio" name="q20" value="D" onchange="handleSelect(this)"> D. $H_2N-CH(CH_3)-COOCH_3$.</label>
+        </div>
+      </div>
+
+      <div class="lesson-title">BÀI 10: PROTEIN VÀ ENZYME</div>
+
+      <!-- Câu 21 -->
+      <div class="question-card" id="card-q21">
+        <div class="question-title"><span>Câu 21</span> (NB). Protein là hợp chất cao phân tử được cấu tạo từ một hay nhiều:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q21" value="A" onchange="handleSelect(this)"> A. Chuỗi polypeptide.</label>
+          <label class="option-label"><input type="radio" name="q21" value="B" onchange="handleSelect(this)"> B. Phân tử triglyceride.</label>
+          <label class="option-label"><input type="radio" name="q21" value="C" onchange="handleSelect(this)"> C. Đơn vị monosaccharide.</label>
+          <label class="option-label"><input type="radio" name="q21" value="D" onchange="handleSelect(this)"> D. Gốc hydrocarbon.</label>
+        </div>
+      </div>
+
+      <!-- Câu 22 -->
+      <div class="question-card" id="card-q22">
+        <div class="question-title"><span>Câu 22</span> (NB). Loại protein nào sau đây thuộc nhóm protein dạng hình cầu và tan được trong nước tạo dung dịch keo?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q22" value="A" onchange="handleSelect(this)"> A. Keratin (ở tóc, móng).</label>
+          <label class="option-label"><input type="radio" name="q22" value="B" onchange="handleSelect(this)"> B. Collagen (ở da, sụn).</label>
+          <label class="option-label"><input type="radio" name="q22" value="C" onchange="handleSelect(this)"> C. Myosin (ở cơ bắp).</label>
+          <label class="option-label"><input type="radio" name="q22" value="D" onchange="handleSelect(this)"> D. Albumin (ở lòng trắng trứng).</label>
+        </div>
+      </div>
+
+      <!-- Câu 23 -->
+      <div class="question-card" id="card-q23">
+        <div class="question-title"><span>Câu 23</span> (NB). Quá trình thủy phân hoàn toàn protein đơn giản thu được sản phẩm gồm hỗn hợp các:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q23" value="A" onchange="handleSelect(this)"> A. Carboxylic acid.</label>
+          <label class="option-label"><input type="radio" name="q23" value="B" onchange="handleSelect(this)"> B. $\alpha$-amino acid.</label>
+          <label class="option-label"><input type="radio" name="q23" value="C" onchange="handleSelect(this)"> C. Esters đơn chức.</label>
+          <label class="option-label"><input type="radio" name="q23" value="D" onchange="handleSelect(this)"> D. Alcohol đa chức.</label>
+        </div>
+      </div>
+
+      <!-- Câu 24 -->
+      <div class="question-card" id="card-q24">
+        <div class="question-title"><span>Câu 24</span> (NB). Phần lớn enzyme là những protein đóng vai trò:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q24" value="A" onchange="handleSelect(this)"> A. Chất điều hòa độ pH.</label>
+          <label class="option-label"><input type="radio" name="q24" value="B" onchange="handleSelect(this)"> B. Chất xúc tác cho các phản ứng hóa học và sinh hóa.</label>
+          <label class="option-label"><input type="radio" name="q24" value="C" onchange="handleSelect(this)"> C. Chất cung cấp dung môi hòa tan.</label>
+          <label class="option-label"><input type="radio" name="q24" value="D" onchange="handleSelect(this)"> D. Chất chỉ thị màu.</label>
+        </div>
+      </div>
+
+      <!-- Câu 25 -->
+      <div class="question-card" id="card-q25">
+        <div class="question-title"><span>Câu 25</span> (TH). Hiện tượng lòng trắng trứng bị đông tụ khi đun nóng hoặc khi thêm dung dịch acid/base là do:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q25" value="A" onchange="handleSelect(this)"> A. Cấu trúc ban đầu của protein bị biến đổi.</label>
+          <label class="option-label"><input type="radio" name="q25" value="B" onchange="handleSelect(this)"> B. Protein bị thủy phân hoàn toàn thành các chất vô cơ.</label>
+          <label class="option-label"><input type="radio" name="q25" value="C" onchange="handleSelect(this)"> C. Protein bị bay hơi.</label>
+          <label class="option-label"><input type="radio" name="q25" value="D" onchange="handleSelect(this)"> D. Khí $N_2$ giải phóng cuốn kết tủa lên trên.</label>
+        </div>
+      </div>
+
+      <!-- Câu 26 -->
+      <div class="question-card" id="card-q26">
+        <div class="question-title"><span>Câu 26</span> (TH). Nhỏ dung dịch $HNO_3$ đặc vào ống nghiệm chứa dung dịch lòng trắng trứng, đun nóng nhẹ, xuất hiện hiện tượng:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q26" value="A" onchange="handleSelect(this)"> A. Dung dịch màu xanh lam trong suốt.</label>
+          <label class="option-label"><input type="radio" name="q26" value="B" onchange="handleSelect(this)"> B. Xuất hiện sản phẩm rắn màu vàng.</label>
+          <label class="option-label"><input type="radio" name="q26" value="C" onchange="handleSelect(this)"> C. Khí màu nâu đỏ thoát ra rầm rộ.</label>
+          <label class="option-label"><input type="radio" name="q26" value="D" onchange="handleSelect(this)"> D. Dung dịch đổi sang màu tím nhạt.</label>
+        </div>
+      </div>
+
+      <!-- Câu 27 -->
+      <div class="question-card" id="card-q27">
+        <div class="question-title"><span>Câu 27</span> (TH). Đặc điểm nổi bật của xúc tác enzyme so với chất xúc tác hóa học thông thường là:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q27" value="A" onchange="handleSelect(this)"> A. Tốc độ phản ứng chậm hơn và không có tính chọn lọc.</label>
+          <label class="option-label"><input type="radio" name="q27" value="B" onchange="handleSelect(this)"> B. Tính chọn lọc cao và tốc độ phản ứng cực nhanh.</label>
+          <label class="option-label"><input type="radio" name="q27" value="C" onchange="handleSelect(this)"> C. Chỉ hoạt động ở nhiệt độ trên $500^\circ C$.</label>
+          <label class="option-label"><input type="radio" name="q27" value="D" onchange="handleSelect(this)"> D. Bị tiêu hao hoàn toàn sau phản ứng.</label>
+        </div>
+      </div>
+
+      <!-- Câu 28 -->
+      <div class="question-card" id="card-q28">
+        <div class="question-title"><span>Câu 28</span> (VD). Cho các protein sau: keratin, collagen, myosin, albumin, hemoglobin. Số protein không tan trong nước ở điều kiện thường là:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q28" value="A" onchange="handleSelect(this)"> A. 2.</label>
+          <label class="option-label"><input type="radio" name="q28" value="B" onchange="handleSelect(this)"> B. 3.</label>
+          <label class="option-label"><input type="radio" name="q28" value="C" onchange="handleSelect(this)"> C. 4.</label>
+          <label class="option-label"><input type="radio" name="q28" value="D" onchange="handleSelect(this)"> D. 5.</label>
+        </div>
+      </div>
+
+      <!-- Câu 29 -->
+      <div class="question-card" id="card-q29">
+        <div class="question-title"><span>Câu 29</span> (VD). Nhỏ thuốc thử biuret ($Cu(OH)_2$ trong môi trường kiềm) vào dung dịch albumin, thu được phức chất có màu đặc trưng là:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q29" value="A" onchange="handleSelect(this)"> A. Màu đỏ gạch.</label>
+          <label class="option-label"><input type="radio" name="q29" value="B" onchange="handleSelect(this)"> B. Màu vàng nhạt.</label>
+          <label class="option-label"><input type="radio" name="q29" value="C" onchange="handleSelect(this)"> C. Màu tím đặc trưng.</label>
+          <label class="option-label"><input type="radio" name="q29" value="D" onchange="handleSelect(this)"> D. Màu xanh lục.</label>
+        </div>
+      </div>
+
+      <!-- Câu 30 -->
+      <div class="question-card" id="card-q30">
+        <div class="question-title"><span>Câu 30</span> (VDC). Ứng dụng enzyme tham gia vào quá trình tạo ra thông tin di truyền mới hoặc sửa đổi thông tin di truyền hiện có thuộc lĩnh vực nào?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q30" value="A" onchange="handleSelect(this)"> A. Công nghiệp thực phẩm.</label>
+          <label class="option-label"><input type="radio" name="q30" value="B" onchange="handleSelect(this)"> B. Công nghiệp dược phẩm.</label>
+          <label class="option-label"><input type="radio" name="q30" value="C" onchange="handleSelect(this)"> C. Kỹ thuật di truyền.</label>
+          <label class="option-label"><input type="radio" name="q30" value="D" onchange="handleSelect(this)"> D. Công nghiệp dệt may.</label>
+        </div>
+      </div>
+
+      <div class="lesson-title">BÀI 11: ÔN TẬP CHƯƠNG 3</div>
+
+      <!-- Câu 31 -->
+      <div class="question-card" id="card-q31">
+        <div class="question-title"><span>Câu 31</span> (NB). Chất nào sau đây thuộc loại amine?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q31" value="A" onchange="handleSelect(this)"> A. $CH_3COOH$.</label>
+          <label class="option-label"><input type="radio" name="q31" value="B" onchange="handleSelect(this)"> B. $CH_3NH_2$.</label>
+          <label class="option-label"><input type="radio" name="q31" value="C" onchange="handleSelect(this)"> C. $CH_3CHO$.</label>
+          <label class="option-label"><input type="radio" name="q31" value="D" onchange="handleSelect(this)"> D. $CH_3COOCH_3$.</label>
+        </div>
+      </div>
+
+      <!-- Câu 32 -->
+      <div class="question-card" id="card-q32">
+        <div class="question-title"><span>Câu 32</span> (NB). Amino acid nào sau đây có kí hiệu 3 chữ cái là Ala?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q32" value="A" onchange="handleSelect(this)"> A. Glycine.</label>
+          <label class="option-label"><input type="radio" name="q32" value="B" onchange="handleSelect(this)"> B. Alanine.</label>
+          <label class="option-label"><input type="radio" name="q32" value="C" onchange="handleSelect(this)"> C. Valine.</label>
+          <label class="option-label"><input type="radio" name="q32" value="D" onchange="handleSelect(this)"> D. Lysine.</label>
+        </div>
+      </div>
+
+      <!-- Câu 33 -->
+      <div class="question-card" id="card-q33">
+        <div class="question-title"><span>Câu 33</span> (NB). Số liên kết peptide có trong một phân tử tripeptide mạch hở là:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q33" value="A" onchange="handleSelect(this)"> A. 1.</label>
+          <label class="option-label"><input type="radio" name="q33" value="B" onchange="handleSelect(this)"> B. 2.</label>
+          <label class="option-label"><input type="radio" name="q33" value="C" onchange="handleSelect(this)"> C. 3.</label>
+          <label class="option-label"><input type="radio" name="q33" value="D" onchange="handleSelect(this)"> D. 4.</label>
+        </div>
+      </div>
+
+      <!-- Câu 34 -->
+      <div class="question-card" id="card-q34">
+        <div class="question-title"><span>Câu 34</span> (NB). Protein dạng hình cầu nào sau đây tan được trong nước tạo dung dịch keo?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q34" value="A" onchange="handleSelect(this)"> A. Keratin.</label>
+          <label class="option-label"><input type="radio" name="q34" value="B" onchange="handleSelect(this)"> B. Collagen.</label>
+          <label class="option-label"><input type="radio" name="q34" value="C" onchange="handleSelect(this)"> C. Albumin.</label>
+          <label class="option-label"><input type="radio" name="q34" value="D" onchange="handleSelect(this)"> D. Myosin.</label>
+        </div>
+      </div>
+
+      <!-- Câu 35 -->
+      <div class="question-card" id="card-q35">
+        <div class="question-title"><span>Câu 35</span> (TH). Dãy gồm các dung dịch đều làm xanh giấy quỳ tím ẩm là:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q35" value="A" onchange="handleSelect(this)"> A. Methylamine, Lysine, Ethylamine.</label>
+          <label class="option-label"><input type="radio" name="q35" value="B" onchange="handleSelect(this)"> B. Aniline, Glycine, Alanine.</label>
+          <label class="option-label"><input type="radio" name="q35" value="C" onchange="handleSelect(this)"> C. Glutamic acid, Lysine, Aniline.</label>
+          <label class="option-label"><input type="radio" name="q35" value="D" onchange="handleSelect(this)"> D. Methylamine, Aniline, Glycine.</label>
+        </div>
+      </div>
+
+      <!-- Câu 36 -->
+      <div class="question-card" id="card-q36">
+        <div class="question-title"><span>Câu 36</span> (TH). Để phân biệt hai dung dịch dipeptide Gly-Ala và tripeptide Gly-Ala-Gly, người ta dùng thuốc thử nào?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q36" value="A" onchange="handleSelect(this)"> A. Quỳ tím.</label>
+          <label class="option-label"><input type="radio" name="q36" value="B" onchange="handleSelect(this)"> B. Dung dịch $Cu(OH)_2$ trong môi trường kiềm.</label>
+          <label class="option-label"><input type="radio" name="q36" value="C" onchange="handleSelect(this)"> C. Dung dịch $HCl$.</label>
+          <label class="option-label"><input type="radio" name="q36" value="D" onchange="handleSelect(this)"> D. Dung dịch $NaCl$.</label>
+        </div>
+      </div>
+
+      <!-- Câu 37 -->
+      <div class="question-card" id="card-q37">
+        <div class="question-title"><span>Câu 37</span> (TH). Dung dịch amino acid nào sau đây làm quỳ tím chuyển sang màu đỏ?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q37" value="A" onchange="handleSelect(this)"> A. Glycine.</label>
+          <label class="option-label"><input type="radio" name="q37" value="B" onchange="handleSelect(this)"> B. Alanine.</label>
+          <label class="option-label"><input type="radio" name="q37" value="C" onchange="handleSelect(this)"> C. Glutamic acid.</label>
+          <label class="option-label"><input type="radio" name="q37" value="D" onchange="handleSelect(this)"> D. Lysine.</label>
+        </div>
+      </div>
+
+      <!-- Câu 38 -->
+      <div class="question-card" id="card-q38">
+        <div class="question-title"><span>Câu 38</span> (VD). Cho phản ứng: $Aniline + HCl \rightarrow X$. Công thức cấu tạo của muối $X$ là:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q38" value="A" onchange="handleSelect(this)"> A. $C_6H_5NH_3Cl$.</label>
+          <label class="option-label"><input type="radio" name="q38" value="B" onchange="handleSelect(this)"> B. $C_6H_4ClNH_2$.</label>
+          <label class="option-label"><input type="radio" name="q38" value="C" onchange="handleSelect(this)"> C. $C_6H_5Cl$.</label>
+          <label class="option-label"><input type="radio" name="q38" value="D" onchange="handleSelect(this)"> D. $C_6H_5NH_2Cl_2$.</label>
+        </div>
+      </div>
+
+      <!-- Câu 39 -->
+      <div class="question-card" id="card-q39">
+        <div class="question-title"><span>Câu 39</span> (VD). Thủy phân hoàn toàn 1 mol tripeptide Gly-Ala-Val trong dung dịch $NaOH$ dư, số mol muối thu được là:</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q39" value="A" onchange="handleSelect(this)"> A. 1 mol.</label>
+          <label class="option-label"><input type="radio" name="q39" value="B" onchange="handleSelect(this)"> B. 2 mol.</label>
+          <label class="option-label"><input type="radio" name="q39" value="C" onchange="handleSelect(this)"> C. 3 mol.</label>
+          <label class="option-label"><input type="radio" name="q39" value="D" onchange="handleSelect(this)"> D. 4 mol.</label>
+        </div>
+      </div>
+
+      <!-- Câu 40 -->
+      <div class="question-card" id="card-q40">
+        <div class="question-title"><span>Câu 40</span> (VDC). Thủy phân không hoàn toàn tetrapeptide Ala-Gly-Glu-Val, thu được tối đa bao nhiêu loại dipeptide?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q40" value="A" onchange="handleSelect(this)"> A. 2.</label>
+          <label class="option-label"><input type="radio" name="q40" value="B" onchange="handleSelect(this)"> B. 3.</label>
+          <label class="option-label"><input type="radio" name="q40" value="C" onchange="handleSelect(this)"> C. 4.</label>
+          <label class="option-label"><input type="radio" name="q40" value="D" onchange="handleSelect(this)"> D. 5.</label>
+        </div>
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- PHẦN II. TRẮC NGHIỆM ĐÚNG/SAI (20 CÂU) -->
+      <!-- ========================================================================= -->
+      <div class="big-section-title">PHẦN II. TRẮC NGHIỆM ĐÚNG/SAI (20 CÂU)</div>
+
+      <div class="lesson-title">BÀI 8: AMINE</div>
+
+      <!-- TF 1 -->
+      <div class="question-card" id="card-tf1">
+        <div class="question-title"><span>Câu 1</span> (NB). Xét các phát biểu về khái niệm và phân loại amine:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Amine là dẫn xuất của ammonia khi thay thế nguyên tử $H$ bằng gốc hydrocarbon.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf1_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf1_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Hợp chất $CH_3NHCH_2CH_3$ thuộc loại amine bậc ba.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf1_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf1_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Arylamine là amine có nhóm $-NH_2$ liên kết trực tiếp với nguyên tử carbon của vòng benzene.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf1_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf1_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Hợp chất $C_6H_5NH_2$ có tên thông thường là aniline.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf1_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf1_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- TF 2 -->
+      <div class="question-card" id="card-tf2">
+        <div class="question-title"><span>Câu 2</span> (NB). Xét tính chất vật lý của các amine:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Methylamine, ethylamine, dimethylamine, trimethylamine là các chất khí ở điều kiện thường.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf2_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf2_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Các alkylamine nhỏ có mùi khai tương tự ammonia và tan tốt trong nước.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf2_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf2_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Aniline là chất lỏng không màu, để lâu trong không khí chuyển sang màu nâu đen.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf2_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf2_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Nhiệt độ sôi của các amine thấp hơn các hydrocarbon có cùng số nguyên tử carbon.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf2_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf2_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- TF 3 -->
+      <div class="question-card" id="card-tf3">
+        <div class="question-title"><span>Câu 3</span> (TH). Xét tính chất hóa học của alkylamine và aniline:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Dung dịch các alkylamine làm quỳ tím chuyển sang màu xanh.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf3_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf3_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Aniline làm phenolphthalein hóa hồng do có tính base mạnh.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf3_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf3_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Aniline tác dụng với $HONO$ và $HCl$ ở $0-5^\circ C$ tạo thành muối diazonium.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf3_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf3_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Nhóm $-NH_2$ làm cho nhân thơm của aniline dễ tham gia phản ứng thế hơn so với benzene.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf3_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf3_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- TF 4 -->
+      <div class="question-card" id="card-tf4">
+        <div class="question-title"><span>Câu 4</span> (VD). Xét các ứng dụng và phương pháp điều chế amine:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Aniline là nguyên liệu quan trọng để tổng hợp phẩm nhuộm azo và dược phẩm paracetamol.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf4_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf4_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Hexamethylenediamine là một diamine được dùng để tổng hợp tơ nylon-6,6.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf4_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf4_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Phản ứng thế bromine vào nhân thơm aniline ưu tiên vào vị trí meta.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf4_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf4_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Aniline được điều chế bằng cách khử nitrobenzene bằng $Fe$ trong dung dịch $HCl$.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf4_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf4_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- TF 5 -->
+      <div class="question-card" id="card-tf5">
+        <div class="question-title"><span>Câu 5</span> (VDC). Xét các phản ứng đặc trưng của aniline và alkylamine trong phòng thí nghiệm:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Nhỏ nước bromine vào dung dịch aniline thu được kết tủa trắng 2,4,6-tribromoaniline.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf5_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf5_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Phương trình phản ứng thế bromine: $C_6H_5NH_2 + 3Br_2 \rightarrow C_6H_2Br_3NH_2\downarrow + 3HBr$.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf5_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf5_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Cho methylamine tác dụng với $HONO$ thu được alcohol tương ứng và giải phóng khí $N_2$.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf5_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf5_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Aniline tan tốt trong nước ở điều kiện thường tạo dung dịch trong suốt.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf5_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf5_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="lesson-title">BÀI 9: AMINO ACID VÀ PEPTIDE</div>
+
+      <!-- TF 6 -->
+      <div class="question-card" id="card-tf6">
+        <div class="question-title"><span>Câu 6</span> (NB). Xét các phát biểu về khái niệm và cấu tạo amino acid:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Amino acid là hợp chất hữu cơ tạp chức chứa đồng thời nhóm $-NH_2$ và $-COOH$.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf6_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf6_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Hầu hết các amino acid thiên nhiên là các $\beta$-amino acid.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf6_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf6_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Amino acid thiết yếu là các amino acid mà cơ thể người không thể tự tổng hợp được.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf6_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf6_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Trong điều kiện thường, amino acid là chất rắn tinh thể không màu, tan tốt trong nước.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf6_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf6_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- TF 7 -->
+      <div class="question-card" id="card-tf7">
+        <div class="question-title"><span>Câu 7</span> (NB). Xét tên gọi của một số $\alpha$-amino acid tiêu chuẩn:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Hợp chất $H_2N-CH_2-COOH$ có tên thay thế là Aminoethanoic acid.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf7_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf7_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Hợp chất $H_2N-CH(CH_3)-COOH$ có tên thông thường là Alanine (Ala).</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf7_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf7_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Lysine là amino acid có 6 nguyên tử carbon trong phân tử.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf7_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf7_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Glutamic acid có kí hiệu 3 chữ cái là Gla.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf7_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf7_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- TF 8 -->
+      <div class="question-card" id="card-tf8">
+        <div class="question-title"><span>Câu 8</span> (TH). Xét tính chất hóa học lưỡng tính và điện di của amino acid:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Amino acid có tính lưỡng tính vì phản ứng được với cả acid mạnh và base mạnh.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf8_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf8_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Phương trình minh họa tác dụng với $HCl$: $H_2N-CH_2-COOH + HCl \rightarrow ClH_3N-CH_2-COOH$.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf8_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf8_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Ở $pH > 6$ (môi trường base), Glycine nhường proton trở thành anion và di chuyển về cực âm (-).</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf8_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf8_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Khả năng di chuyển khác nhau trong điện trường của amino acid gọi là tính chất điện di.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf8_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf8_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- TF 9 -->
+      <div class="question-card" id="card-tf9">
+        <div class="question-title"><span>Câu 9</span> (VD). Xét tính chất của Peptide và phản ứng màu biuret:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Peptide được cấu tạo từ các đơn vị $\alpha$-amino acid liên kết qua liên kết peptide.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf9_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf9_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Dipeptide Gly-Ala phản ứng với $Cu(OH)_2/NaOH$ tạo dung dịch màu tím đặc trưng.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf9_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf9_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Thủy phân hoàn toàn tripeptide Gly-Ala-Val thu được hỗn hợp các $\alpha$-amino acid tự do.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf9_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf9_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Thủy phân không hoàn toàn tetrapeptide Gly-Tyr-Val-Ala có thể thu được tripeptide Gly-Tyr-Val.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf9_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf9_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- TF 10 -->
+      <div class="question-card" id="card-tf10">
+        <div class="question-title"><span>Câu 10</span> (VDC). Xét phản ứng trùng ngưng và điều chế polyamide từ amino acid:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Đun nóng $\varepsilon$-amino acid hoặc $\omega$-amino acid xảy ra phản ứng trùng ngưng tạo polyamide.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf10_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf10_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Phương trình trùng ngưng 6-aminohexanoic acid: $n H_2N-[CH_2]_5-COOH \xrightarrow{t^\circ} -(NH-[CH_2]_5-CO)_n- + n H_2O$.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf10_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf10_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Polymer thu được từ phản ứng trùng ngưng 6-aminohexanoic acid có tên là polycaproamide (capron).</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf10_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf10_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Trong phản ứng trùng ngưng amino acid, nhóm $-COOH$ của phân tử này phản ứng với nhóm $-COOH$ của phân tử khác.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf10_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf10_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="lesson-title">BÀI 10: PROTEIN VÀ ENZYME</div>
+
+      <!-- TF 11 -->
+      <div class="question-card" id="card-tf11">
+        <div class="question-title"><span>Câu 11</span> (NB). Xét khái niệm và phân loại protein:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Protein là hợp chất cao phân tử cấu tạo từ một hay nhiều chuỗi polypeptide.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf11_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf11_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Protein đơn giản khi thủy phân hoàn toàn chỉ tạo ra hỗn hợp các $\alpha$-amino acid.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf11_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf11_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Protein phức tạp gồm protein đơn giản kết hợp với phần "phi protein" như lipid, nucleic acid.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf11_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf11_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Chuỗi polypeptide trong protein gồm các đơn vị $\beta$-amino acid liên kết với nhau.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf11_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf11_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- TF 12 -->
+      <div class="question-card" id="card-tf12">
+        <div class="question-title"><span>Câu 12</span> (NB). Xét tính chất vật lý của protein dạng hình sợi và hình cầu:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Keratin (ở tóc, móng) và collagen (ở da, sụn) là các protein dạng hình sợi.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf12_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf12_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Protein dạng hình sợi tan tốt trong nước tạo dung dịch keo.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf12_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf12_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Hemoglobin trong máu và albumin trong lòng trắng trứng là protein dạng hình cầu.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf12_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf12_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Protein dạng hình cầu có thể tan trong nước tạo thành dung dịch keo.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf12_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf12_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- TF 13 -->
+      <div class="question-card" id="card-tf13">
+        <div class="question-title"><span>Câu 13</span> (TH). Xét phản ứng màu và phản ứng thủy phân của protein:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Thủy phân hoàn toàn protein đơn giản tạo thành hỗn hợp các $\alpha$-amino acid.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf13_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf13_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Protein tác dụng với thuốc thử biuret ($Cu(OH)_2/NaOH$) tạo sản phẩm màu tím đặc trưng.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf13_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf13_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Protein phản ứng với $HNO_3$ đặc tạo sản phẩm rắn màu vàng do nitro hóa nhân thơm và sự đông tụ.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf13_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf13_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Phản ứng màu biuret giúp phân biệt protein với chất béo và carbohydrate.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf13_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf13_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- TF 14 -->
+      <div class="question-card" id="card-tf14">
+        <div class="question-title"><span>Câu 14</span> (VD). Xét hiện tượng đông tụ và vai trò của protein:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Sự đông tụ protein xảy ra dưới tác dụng của nhiệt độ, acid, base hoặc ion kim loại nặng ($Cu^{2+}, Pb^{2+}, Hg^{2+}$).</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf14_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf14_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Khi bị đông tụ, cấu trúc không gian ban đầu của protein không bị thay đổi.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf14_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf14_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Protein đảm nhận các vai trò như xây dựng tế bào, vận chuyển các chất và xúc tác phản ứng.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf14_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf14_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Protein là một trong những nguồn thức ăn chính cung cấp amino acid thiết yếu cho con người.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf14_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf14_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- TF 15 -->
+      <div class="question-card" id="card-tf15">
+        <div class="question-title"><span>Câu 15</span> (VDC). Xét khái niệm và ứng dụng của enzyme:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Enzyme là những protein đóng vai trò xúc tác cho các phản ứng hóa học và sinh hóa.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf15_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf15_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Mỗi enzyme có tính chọn lọc cao, chỉ xúc tác cho một hoặc một số phản ứng nhất định.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf15_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf15_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Tốc độ phản ứng có xúc tác enzyme chậm hơn nhiều so với xúc tác hóa học.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf15_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf15_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Trong kỹ thuật di truyền, enzyme được dùng để tạo ra hoặc sửa đổi thông tin di truyền.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf15_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf15_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="lesson-title">BÀI 11: ÔN TẬP CHƯƠNG 3</div>
+
+      <!-- TF 16 -->
+      <div class="question-card" id="card-tf16">
+        <div class="question-title"><span>Câu 16</span> (NB). Xét các đặc điểm hệ thống hóa về Amine và Amino acid:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Amine là dẫn xuất của $NH_3$ khi thay thế $H$ bằng gốc hydrocarbon.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf16_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf16_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Amino acid là hợp chất hữu cơ tạp chức chứa nhóm $-NH_2$ và $-COOH$.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf16_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf16_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Hầu hết amino acid tồn tại ở dạng ion lưỡng cực nên tan tốt trong nước.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf16_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf16_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Aniline làm quỳ tím chuyển sang màu xanh đậm.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf16_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf16_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- TF 17 -->
+      <div class="question-card" id="card-tf17">
+        <div class="question-title"><span>Câu 17</span> (NB). Xét tính chất của Peptide và Protein:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Peptide được cấu tạo từ các đơn vị $\alpha$-amino acid qua liên kết peptide.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf17_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf17_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Protein đơn giản khi thủy phân hoàn toàn tạo ra hỗn hợp các $\alpha$-amino acid.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf17_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf17_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Protein dạng hình sợi không tan trong nước và các dung môi thông thường.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf17_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf17_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Dipeptide phản ứng với $Cu(OH)_2/NaOH$ tạo dung dịch màu tím.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf17_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf17_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- TF 18 -->
+      <div class="question-card" id="card-tf18">
+        <div class="question-title"><span>Câu 18</span> (TH). Xét các phản ứng nhận biết đặc trưng trong Chương 3:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Aniline tác dụng với nước bromine tạo kết tủa màu trắng.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf18_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf18_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Tripeptide trở lên và protein phản ứng với $Cu(OH)_2/NaOH$ tạo dung dịch màu tím.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf18_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf18_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Protein phản ứng với $HNO_3$ đặc tạo sản phẩm rắn màu vàng.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf18_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf18_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Alkylamine làm quỳ tím hóa xanh do có tính base.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf18_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf18_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- TF 19 -->
+      <div class="question-card" id="card-tf19">
+        <div class="question-title"><span>Câu 19</span> (VD). Xét các tính chất hóa học và chuyển hóa:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Amino acid có tính lưỡng tính, tác dụng với cả $HCl$ và $NaOH$.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf19_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf19_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Trùng ngưng 6-aminohexanoic acid thu được polycaproamide (capron).</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf19_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf19_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Aniline tác dụng với $HCl$ tạo muối anilinium chloride tan trong nước.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf19_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf19_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Cho $NaOH$ dư vào dung dịch muối anilinium chloride lại tái tạo aniline không tan.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf19_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf19_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- TF 20 -->
+      <div class="question-card" id="card-tf20">
+        <div class="question-title"><span>Câu 20</span> (VDC). Xét phản ứng thủy phân không hoàn toàn peptide:</div>
+        <table class="tf-table">
+          <tr>
+            <td>a) Thủy phân không hoàn toàn tetrapeptide Ala-Gly-Glu-Val có thể thu được dipeptide Ala-Gly.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf20_a" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf20_a" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>b) Thủy phân không hoàn toàn tetrapeptide Ala-Gly-Glu-Val có thể thu được tripeptide Gly-Glu-Val.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf20_b" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf20_b" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>c) Thủy phân hoàn toàn 0,1 mol tetrapeptide Ala-Gly-Glu-Val bằng $NaOH$ dư cần đúng 0,4 mol $NaOH$.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf20_c" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf20_c" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+          <tr>
+            <td>d) Sản phẩm thủy phân hoàn toàn peptide trong môi trường acid là các muối ammonium.</td>
+            <td class="tf-actions">
+              <label class="tf-label"><input type="radio" name="tf20_d" value="Đ" onchange="handleTfSelect(this)"> Đúng</label>
+              <label class="tf-label"><input type="radio" name="tf20_d" value="S" onchange="handleTfSelect(this)"> Sai</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- PHẦN III. CÂU TRẢ LỜI NGẮN (20 CÂU) -->
+      <!-- ========================================================================= -->
+      <div class="big-section-title">PHẦN III. CÂU TRẢ LỜI NGẮN (20 CÂU)</div>
+
+      <div class="lesson-title">BÀI 8: AMINE</div>
+
+      <div class="question-card" id="card-sa1">
+        <div class="question-title"><span>Câu 1</span> (NB). Viết tên thông thường của arylamine đơn giản nhất có công thức $C_6H_5NH_2$.</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa1" placeholder="Nhập câu trả lời..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <div class="question-card" id="card-sa2">
+        <div class="question-title"><span>Câu 2</span> (NB). Xác định bậc của amine có công thức cấu tạo $(CH_3)_3N$.</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa2" placeholder="Nhập câu trả lời (ví dụ: bậc 3)..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <div class="question-card" id="card-sa3">
+        <div class="question-title"><span>Câu 3</span> (TH). Viết tên gốc – chức của amine có công thức $CH_3NHCH_3$.</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa3" placeholder="Nhập câu trả lời..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <div class="question-card" id="card-sa4">
+        <div class="question-title"><span>Câu 4</span> (VD). Trong phản ứng tác dụng với nước bromine dư, 1 mol aniline phản ứng tối đa với bao nhiêu mol $Br_2$?</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa4" placeholder="Nhập số mol..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <div class="question-card" id="card-sa5">
+        <div class="question-title"><span>Câu 5</span> (VDC). Để khử hoàn toàn 0,2 mol nitrobenzene ($C_6H_5NO_2$) thành aniline, cần tiêu tốn bao nhiêu mol nguyên tử $[H]$ sinh ra từ hệ $Fe + HCl$?</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa5" placeholder="Nhập số mol..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <div class="lesson-title">BÀI 9: AMINO ACID VÀ PEPTIDE</div>
+
+      <div class="question-card" id="card-sa6">
+        <div class="question-title"><span>Câu 6</span> (NB). Kí hiệu 3 chữ cái của amino acid Alanine ($H_2N-CH(CH_3)-COOH$) là gì?</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa6" placeholder="Nhập câu trả lời..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <div class="question-card" id="card-sa7">
+        <div class="question-title"><span>Câu 7</span> (NB). Viết tên thay thế của Glycine ($H_2N-CH_2-COOH$).</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa7" placeholder="Nhập câu trả lời..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <div class="question-card" id="card-sa8">
+        <div class="question-title"><span>Câu 8</span> (TH). Tên gọi của amino acid có 5 nguyên tử carbon và 2 nhóm $-COOH$ trong Bảng 9.1 SGK là gì?</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa8" placeholder="Nhập câu trả lời..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <div class="question-card" id="card-sa9">
+        <div class="question-title"><span>Câu 9</span> (VD). Số liên kết peptide có trong phân tử tetrapeptide Gly-Ala-Val-Gly là bao nhiêu?</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa9" placeholder="Nhập số liên kết..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <div class="question-card" id="card-sa10">
+        <div class="question-title"><span>Câu 10</span> (VDC). Cho 0,1 mol Alanine tác dụng hoàn toàn với dung dịch $NaOH$ dư. Khối lượng muối $H_2N-CH(CH_3)-COONa$ thu được là bao nhiêu gam? (Cho $H=1$, $C=12$, $N=14$, $O=16$, $Na=23$).</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa10" placeholder="Nhập khối lượng gam..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <div class="lesson-title">BÀI 10: PROTEIN VÀ ENZYME</div>
+
+      <div class="question-card" id="card-sa11">
+        <div class="question-title"><span>Câu 11</span> (NB). Tên gọi của loại liên kết nối các đơn vị $\alpha$-amino acid trong chuỗi polypeptide là gì?</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa11" placeholder="Nhập câu trả lời..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <div class="question-card" id="card-sa12">
+        <div class="question-title"><span>Câu 12</span> (NB). Loại protein dạng hình cầu có trong lòng trắng trứng là gì?</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa12" placeholder="Nhập câu trả lời..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <div class="question-card" id="card-sa13">
+        <div class="question-title"><span>Câu 13</span> (TH). Khi nhỏ dung dịch $HNO_3$ đặc vào dung dịch lòng trắng trứng và đun nóng, xuất hiện sản phẩm rắn màu gì?</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa13" placeholder="Nhập màu..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <div class="question-card" id="card-sa14">
+        <div class="question-title"><span>Câu 14</span> (VD). Kể tên 1 loại ion kim loại nặng đề cập trong SGK gây ra sự đông tụ protein.</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa14" placeholder="Nhập ion (ví dụ: Cu2+, Pb2+, Hg2+)..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <div class="question-card" id="card-sa15">
+        <div class="question-title"><span>Câu 15</span> (VDC). Trong công nghiệp dược phẩm, enzyme được ứng dụng để sản xuất loại chất vận chuyển nào?</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa15" placeholder="Nhập câu trả lời..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <div class="lesson-title">BÀI 11: ÔN TẬP CHƯƠNG 3</div>
+
+      <div class="question-card" id="card-sa16">
+        <div class="question-title"><span>Câu 16</span> (NB). Công thức phân tử của Methylamine là gì?</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa16" placeholder="Nhập công thức (ví dụ: CH5N hoặc CH3NH2)..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <div class="question-card" id="card-sa17">
+        <div class="question-title"><span>Câu 17</span> (NB). Tên thông thường của $H_2N-CH_2-COOH$ là gì?</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa17" placeholder="Nhập câu trả lời..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <div class="question-card" id="card-sa18">
+        <div class="question-title"><span>Câu 18</span> (TH). Hiện tượng xuất hiện khi nhỏ dung dịch $Cu(OH)_2/NaOH$ vào dung dịch lòng trắng trứng là tạo phức màu gì?</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa18" placeholder="Nhập màu..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <div class="question-card" id="card-sa19">
+        <div class="question-title"><span>Câu 19</span> (VD). Cần bao nhiêu mol $Br_2$ phản ứng hoàn toàn với 0,1 mol Aniline trong nước bromine?</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa19" placeholder="Nhập số mol..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <div class="question-card" id="card-sa20">
+        <div class="question-title"><span>Câu 20</span> (VDC). Tính khối lượng muối Glycinate sodium ($H_2N-CH_2-COONa$) thu được khi cho 0,1 mol Glycine tác dụng vừa đủ với dung dịch $NaOH$. (Cho $H=1$, $C=12$, $N=14$, $O=16$, $Na=23$).</div>
+        <div class="short-input-box">
+          <label>Trả lời:</label>
+          <input type="text" id="sa20" placeholder="Nhập khối lượng gam..." oninput="handleShortInput()">
+        </div>
+      </div>
+
+      <!-- Click Nộp Bài -->
+      <div class="submit-container">
+        <button type="button" class="btn-submit" onclick="submitQuiz()">Click nộp</button>
+      </div>
+    </form>
+
+    <!-- Khối kết quả (chỉ hiện sau khi nộp thành công) -->
+    <div id="result-box">
+      <h3>KẾT QUẢ BÀI LÀM</h3>
+      <p id="student-summary"></p>
+      <div class="score-badge" id="score-text">10 / 10</div>
+      <p id="detail-text"></p>
+      
+      <!-- Nhóm nút hành động: Xuất file Excel & Xem chi tiết -->
+      <div class="btn-group-action">
+        <button type="button" class="btn-excel" onclick="exportToExcel()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="12" y1="18" x2="12" y2="12"></line>
+            <line x1="9" y1="15" x2="15" y2="15"></line>
+          </svg>
+          Xuất file.xls
+        </button>
+        <button type="button" class="btn-toggle-detail" id="btn-toggle" onclick="toggleDetails()">Xem chi tiết</button>
+      </div>
+    </div>
+
+    <!-- Khối chi tiết đáp án & lời giải (Bật/tắt) -->
+    <div class="detail-section" id="detail-section">
+      <h3>ĐÁP ÁN ĐẦY ĐỦ CÁC PHẦN</h3>
+      <div class="explanation-item">
+        <strong>PHẦN I. TRẮC NGHIỆM 4 LỰA CHỌN:</strong><br>
+        Bài 8: 1-B, 2-C, 3-B, 4-B, 5-D, 6-C, 7-B, 8-B, 9-A, 10-C.<br>
+        Bài 9: 11-B, 12-B, 13-A, 14-B, 15-D, 16-B, 17-B, 18-A, 19-B, 20-B.<br>
+        Bài 10: 21-A, 22-D, 23-B, 24-B, 25-A, 26-B, 27-B, 28-B, 29-C, 30-C.<br>
+        Bài 11: 31-B, 32-B, 33-B, 34-C, 35-A, 36-B, 37-C, 38-A, 39-C, 40-B.
+      </div>
+
+      <div class="explanation-item">
+        <strong>PHẦN II. TRẮC NGHIỆM ĐÚNG/SAI:</strong><br>
+        Bài 8: Câu 1: a-Đ, b-S, c-Đ, d-Đ | Câu 2: a-Đ, b-Đ, c-Đ, d-S | Câu 3: a-Đ, b-S, c-Đ, d-Đ | Câu 4: a-Đ, b-Đ, c-S, d-Đ | Câu 5: a-Đ, b-Đ, c-Đ, d-S.<br>
+        Bài 9: Câu 6: a-Đ, b-S, c-Đ, d-Đ | Câu 7: a-Đ, b-Đ, c-Đ, d-S | Câu 8: a-Đ, b-Đ, c-S, d-Đ | Câu 9: a-Đ, b-S, c-Đ, d-Đ | Câu 10: a-Đ, b-Đ, c-Đ, d-S.<br>
+        Bài 10: Câu 11: a-Đ, b-Đ, c-Đ, d-S | Câu 12: a-Đ, b-S, c-Đ, d-Đ | Câu 13: a-Đ, b-Đ, c-Đ, d-Đ | Câu 14: a-Đ, b-S, c-Đ, d-Đ | Câu 15: a-Đ, b-Đ, c-S, d-Đ.<br>
+        Bài 11: Câu 16: a-Đ, b-Đ, c-Đ, d-S | Câu 17: a-Đ, b-Đ, c-Đ, d-S | Câu 18: a-Đ, b-Đ, c-Đ, d-Đ | Câu 19: a-Đ, b-Đ, c-Đ, d-Đ | Câu 20: a-Đ, b-Đ, c-Đ, d-Đ.
+      </div>
+
+      <div class="explanation-item">
+        <strong>PHẦN III. CÂU TRẢ LỜI NGẮN:</strong><br>
+        Bài 8: Câu 1: Aniline | Câu 2: Bậc 3 (bậc ba) | Câu 3: Dimethylamine | Câu 4: 3 mol | Câu 5: 1,2 mol.<br>
+        Bài 9: Câu 6: Ala | Câu 7: Aminoethanoic acid | Câu 8: Glutamic acid | Câu 9: 3 liên kết | Câu 10: 11,1 gam.<br>
+        Bài 10: Câu 11: Liên kết peptide | Câu 12: Albumin | Câu 13: Màu vàng | Câu 14: Cu2+ (hoặc Pb2+, Hg2+) | Câu 15: Enzyme vận chuyển thuốc.<br>
+        Bài 11: Câu 16: CH5N (hoặc CH3NH2) | Câu 17: Glycine | Câu 18: Màu tím | Câu 19: 0,3 mol | Câu 20: 9,7 gam.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Bảng đáp án chuẩn
+    const mcqAnswers = {
+      q1: "B", q2: "C", q3: "B", q4: "B", q5: "D",
+      q6: "C", q7: "B", q8: "B", q9: "A", q10: "C",
+      q11: "B", q12: "B", q13: "A", q14: "B", q15: "D",
+      q16: "B", q17: "B", q18: "A", q19: "B", q20: "B",
+      q21: "A", q22: "D", q23: "B", q24: "B", q25: "A",
+      q26: "B", q27: "B", q28: "B", q29: "C", q30: "C",
+      q31: "B", q32: "B", q33: "B", q34: "C", q35: "A",
+      q36: "B", q37: "C", q38: "A", q39: "C", q40: "B"
+    };
+
+    const tfAnswers = {
+      tf1_a: "Đ", tf1_b: "S", tf1_c: "Đ", tf1_d: "Đ",
+      tf2_a: "Đ", tf2_b: "Đ", tf2_c: "Đ", tf2_d: "S",
+      tf3_a: "Đ", tf3_b: "S", tf3_c: "Đ", tf3_d: "Đ",
+      tf4_a: "Đ", tf4_b: "Đ", tf4_c: "S", tf4_d: "Đ",
+      tf5_a: "Đ", tf5_b: "Đ", tf5_c: "Đ", tf5_d: "S",
+      tf6_a: "Đ", tf6_b: "S", tf6_c: "Đ", tf6_d: "Đ",
+      tf7_a: "Đ", tf7_b: "Đ", tf7_c: "Đ", tf7_d: "S",
+      tf8_a: "Đ", tf8_b: "Đ", tf8_c: "S", tf8_d: "Đ",
+      tf9_a: "Đ", tf9_b: "S", tf9_c: "Đ", tf9_d: "Đ",
+      tf10_a: "Đ", tf10_b: "Đ", tf10_c: "Đ", tf10_d: "S",
+      tf11_a: "Đ", tf11_b: "Đ", tf11_c: "Đ", tf11_d: "S",
+      tf12_a: "Đ", tf12_b: "S", tf12_c: "Đ", tf12_d: "Đ",
+      tf13_a: "Đ", tf13_b: "Đ", tf13_c: "Đ", tf13_d: "Đ",
+      tf14_a: "Đ", tf14_b: "S", tf14_c: "Đ", tf14_d: "Đ",
+      tf15_a: "Đ", tf15_b: "Đ", tf15_c: "S", tf15_d: "Đ",
+      tf16_a: "Đ", tf16_b: "Đ", tf16_c: "Đ", tf16_d: "S",
+      tf17_a: "Đ", tf17_b: "Đ", tf17_c: "Đ", tf17_d: "S",
+      tf18_a: "Đ", tf18_b: "Đ", tf18_c: "Đ", tf18_d: "Đ",
+      tf19_a: "Đ", tf19_b: "Đ", tf19_c: "Đ", tf19_d: "Đ",
+      tf20_a: "Đ", tf20_b: "Đ", tf20_c: "Đ", tf20_d: "Đ"
+    };
+
+    const saKeywords = {
+      sa1: ["aniline"],
+      sa2: ["3", "ba"],
+      sa3: ["dimethylamine"],
+      sa4: ["3"],
+      sa5: ["1,2", "1.2"],
+      sa6: ["ala"],
+      sa7: ["aminoethanoic acid", "aminoethanoic"],
+      sa8: ["glutamic acid", "acid glutamic"],
+      sa9: ["3"],
+      sa10: ["11,1", "11.1"],
+      sa11: ["peptide", "lien ket peptide", "liên kết peptide"],
+      sa12: ["albumin"],
+      sa13: ["vàng", "vang"],
+      sa14: ["cu2+", "pb2+", "hg2+", "cu", "pb", "hg"],
+      sa15: ["thuốc", "thuoc", "vận chuyển thuốc", "van chuyen thuoc"],
+      sa16: ["ch5n", "ch3nh2"],
+      sa17: ["glycine"],
+      sa18: ["tím", "tim"],
+      sa19: ["0,3", "0.3"],
+      sa20: ["9,7", "9.7"]
+    };
+
+    let userMcq = {};
+    let userTf = {};
+    let userSa = {};
+    let finalScore = 0;
+
+    // Web Audio API
+    let audioCtx = null;
+    function getAudioContext() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      return audioCtx;
+    }
+
+    function playSoundEffect() {
+      const ctx = getAudioContext();
+      if (ctx.state === 'suspended') ctx.resume();
+
+      const chord = [523.25, 659.25, 783.99, 1046.50];
+      const randomFreq = chord[Math.floor(Math.random() * chord.length)];
+
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(randomFreq, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(randomFreq * 1.5, ctx.currentTime + 0.1);
+
+      gain.gain.setValueAtTime(0.3, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.1);
+    }
+
+    function playWarningSound() {
+      const ctx = getAudioContext();
+      if (ctx.state === 'suspended') ctx.resume();
+
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(260, ctx.currentTime);
+      osc.frequency.setValueAtTime(180, ctx.currentTime + 0.15);
+
+      gain.gain.setValueAtTime(0.25, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.3);
+    }
+
+    function playFanfare() {
+      const ctx = getAudioContext();
+      if (ctx.state === 'suspended') ctx.resume();
+
+      const notes = [
+        { f: 523.25, t: 0.0, d: 0.12 },
+        { f: 659.25, t: 0.12, d: 0.12 },
+        { f: 783.99, t: 0.24, d: 0.12 },
+        { f: 1046.5, t: 0.36, d: 0.35 }
+      ];
+
+      notes.forEach(n => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(n.f, ctx.currentTime + n.t);
+        gain.gain.setValueAtTime(0.3, ctx.currentTime + n.t);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + n.t + n.d);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(ctx.currentTime + n.t);
+        osc.stop(ctx.currentTime + n.t + n.d);
+      });
+    }
+
+    function handleSelect(radio) {
+      playSoundEffect();
+      const parentCard = radio.closest('.question-card');
+      parentCard.classList.remove('unanswered-alert');
+      parentCard.querySelectorAll('.option-label').forEach(label => label.classList.remove('selected'));
+      radio.closest('.option-label').classList.add('selected');
+      updateProgress();
+    }
+
+    function handleTfSelect(radio) {
+      playSoundEffect();
+      const parentCard = radio.closest('.question-card');
+      parentCard.classList.remove('unanswered-alert');
+      const td = radio.closest('td');
+      td.querySelectorAll('.tf-label').forEach(lbl => {
+        lbl.classList.remove('selected-true', 'selected-false');
+      });
+      if (radio.value === 'Đ') {
+        radio.closest('.tf-label').classList.add('selected-true');
+      } else {
+        radio.closest('.tf-label').classList.add('selected-false');
+      }
+      updateProgress();
+    }
+
+    function handleShortInput() {
+      updateProgress();
+    }
+
+    function updateProgress() {
+      let count = 0;
+      // 40 câu trắc nghiệm
+      for (let i = 1; i <= 40; i++) {
+        if (document.querySelector(`input[name="q${i}"]:checked`)) count++;
+      }
+      // 20 câu Đúng/Sai
+      for (let i = 1; i <= 20; i++) {
+        const a = document.querySelector(`input[name="tf${i}_a"]:checked`);
+        const b = document.querySelector(`input[name="tf${i}_b"]:checked`);
+        const c = document.querySelector(`input[name="tf${i}_c"]:checked`);
+        const d = document.querySelector(`input[name="tf${i}_d"]:checked`);
+        if (a && b && c && d) count++;
+      }
+      // 20 câu ngắn
+      for (let i = 1; i <= 20; i++) {
+        const inp = document.getElementById(`sa${i}`);
+        if (inp && inp.value.trim() !== '') count++;
+      }
+      document.getElementById('answered-count').innerText = count;
+    }
+
+    function submitQuiz() {
+      const fullname = document.getElementById("fullname").value.trim();
+      const classroom = document.getElementById("classroom").value.trim();
+      const studentId = document.getElementById("student-id").value.trim();
+
+      if (!fullname || !classroom || !studentId) {
+        playWarningSound();
+        alert("Vui lòng điền đầy đủ: Họ tên học sinh, Lớp và Số thứ tự trước khi nộp bài!");
+        return;
+      }
+
+      document.querySelectorAll('.question-card').forEach(card => card.classList.remove('unanswered-alert'));
+
+      let missing = [];
+
+      // Kiểm tra MCQ (40 câu)
+      for (let i = 1; i <= 40; i++) {
+        const sel = document.querySelector(`input[name="q${i}"]:checked`);
+        if (!sel) {
+          missing.push(`card-q${i}`);
+        } else {
+          userMcq[`q${i}`] = sel.value;
+        }
+      }
+
+      // Kiểm tra TF (20 câu, mỗi câu 4 ý)
+      for (let i = 1; i <= 20; i++) {
+        const a = document.querySelector(`input[name="tf${i}_a"]:checked`);
+        const b = document.querySelector(`input[name="tf${i}_b"]:checked`);
+        const c = document.querySelector(`input[name="tf${i}_c"]:checked`);
+        const d = document.querySelector(`input[name="tf${i}_d"]:checked`);
+        if (!a || !b || !c || !d) {
+          missing.push(`card-tf${i}`);
+        } else {
+          userTf[`tf${i}_a`] = a.value;
+          userTf[`tf${i}_b`] = b.value;
+          userTf[`tf${i}_c`] = c.value;
+          userTf[`tf${i}_d`] = d.value;
+        }
+      }
+
+      // Kiểm tra Short Answer (20 câu)
+      for (let i = 1; i <= 20; i++) {
+        const inp = document.getElementById(`sa${i}`);
+        if (!inp || inp.value.trim() === '') {
+          missing.push(`card-sa${i}`);
+        } else {
+          userSa[`sa${i}`] = inp.value.trim();
+        }
+      }
+
+      if (missing.length > 0) {
+        playWarningSound();
+        missing.forEach(id => {
+          const card = document.getElementById(id);
+          if (card) card.classList.add('unanswered-alert');
+        });
+        const firstCard = document.getElementById(missing[0]);
+        if (firstCard) firstCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        alert(`Bạn chưa làm đầy đủ toàn bộ các câu hỏi!\nVui lòng hoàn thành tất cả các câu trước khi bấm nộp bài.`);
+        return;
+      }
+
+      // Chấm điểm
+      let correctMcq = 0;
+      for (let i = 1; i <= 40; i++) {
+        if (userMcq[`q${i}`] === mcqAnswers[`q${i}`]) correctMcq++;
+      }
+
+      let correctTfItems = 0;
+      for (let key in tfAnswers) {
+        if (userTf[key] === tfAnswers[key]) correctTfItems++;
+      }
+
+      let correctSa = 0;
+      for (let i = 1; i <= 20; i++) {
+        const userVal = (userSa[`sa${i}`] || '').toLowerCase();
+        const kwList = saKeywords[`sa${i}`];
+        if (kwList.some(kw => userVal.includes(kw))) {
+          correctSa++;
+        }
+      }
+
+      // Thang điểm 10 (MCQ: 4.0đ, TF: 4.0đ, SA: 2.0đ)
+      const scoreMcq = (correctMcq / 40) * 4.0;
+      const scoreTf = (correctTfItems / 80) * 4.0;
+      const scoreSa = (correctSa / 20) * 2.0;
+      finalScore = (scoreMcq + scoreTf + scoreSa).toFixed(2);
+
+      playFanfare();
+
+      const resultBox = document.getElementById("result-box");
+      const summaryText = document.getElementById("student-summary");
+      const scoreText = document.getElementById("score-text");
+      const detailText = document.getElementById("detail-text");
+
+      summaryText.innerHTML = `Thí sinh: <strong>${fullname}</strong> — Lớp: <strong>${classroom}</strong> (STT: ${studentId})`;
+      scoreText.innerText = `${finalScore} / 10 điểm`;
+      detailText.innerHTML = `Phần I (MCQ): <strong>${correctMcq}/40</strong> | Phần II (Đúng/Sai): <strong>${correctTfItems}/80 ý</strong> | Phần III (Trả lời ngắn): <strong>${correctSa}/20</strong>`;
+
+      resultBox.style.display = "block";
+
+      const submitBtn = document.querySelector(".btn-submit");
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Đã nộp bài thành công";
+      submitBtn.style.background = "#94a3b8";
+      submitBtn.style.cursor = "not-allowed";
+
+      document.querySelectorAll('input').forEach(i => i.disabled = true);
+
+      resultBox.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function toggleDetails() {
+      const detailSection = document.getElementById("detail-section");
+      const btnToggle = document.getElementById("btn-toggle");
+
+      if (detailSection.style.display === "none" || detailSection.style.display === "") {
+        detailSection.style.display = "block";
+        btnToggle.innerText = "Ẩn chi tiết đáp án";
+        btnToggle.style.background = "#4b5563";
+        detailSection.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        detailSection.style.display = "none";
+        btnToggle.innerText = "Xem chi tiết";
+        btnToggle.style.background = "var(--purple)";
+      }
+    }
+
+    function exportToExcel() {
+      const fullname = document.getElementById("fullname").value.trim();
+      const classroom = document.getElementById("classroom").value.trim();
+      const studentId = document.getElementById("student-id").value.trim();
+
+      let rows = '';
+
+      // Phần I
+      for (let i = 1; i <= 40; i++) {
+        const sAns = userMcq[`q${i}`] || '';
+        const cAns = mcqAnswers[`q${i}`];
+        rows += `<tr><td>Phần I - Câu ${i}</td><td>${sAns}</td><td>${cAns}</td><td>${sAns === cAns ? 'Đúng' : 'Sai'}</td></tr>`;
+      }
+
+      // Phần II
+      for (let i = 1; i <= 20; i++) {
+        ['a','b','c','d'].forEach(sub => {
+          const key = `tf${i}_${sub}`;
+          const sAns = userTf[key] || '';
+          const cAns = tfAnswers[key];
+          rows += `<tr><td>Phần II - Câu ${i}${sub}</td><td>${sAns}</td><td>${cAns}</td><td>${sAns === cAns ? 'Đúng' : 'Sai'}</td></tr>`;
+        });
+      }
+
+      // Phần III
+      for (let i = 1; i <= 20; i++) {
+        const sAns = userSa[`sa${i}`] || '';
+        const kwList = saKeywords[`sa${i}`];
+        const isCor = kwList.some(kw => sAns.toLowerCase().includes(kw));
+        rows += `<tr><td>Phần III - Câu ${i}</td><td>${sAns}</td><td>${kwList.join(' / ')}</td><td>${isCor ? 'Đúng' : 'Sai'}</td></tr>`;
+      }
+
+      const excelTemplate = `
+        <html xmlns:o="urn:schemas-microsoft-com:office:office" 
+              xmlns:x="urn:schemas-microsoft-com:office:excel" 
+              xmlns="http://www.w3.org/TR/REC-html40">
+        <head>
+          <meta charset="utf-8">
+          <style>
+            table { border-collapse: collapse; width: 100%; font-size: 11pt; }
+            th { background-color: #0284c7; color: #ffffff; border: 1px solid #000; padding: 6px; }
+            td { border: 1px solid #000; padding: 5px; text-align: center; }
+            .title { font-size: 16pt; font-weight: bold; text-align: center; color: #0369a1; }
+            .info-label { font-weight: bold; background-color: #f1f5f9; }
+          </style>
+        </head>
+        <body>
+          <table>
+            <tr><td colspan="4" class="title">BẢNG KẾT QUẢ KIỂM TRA HÓA HỌC 12 - CHƯƠNG 3</td></tr>
+            <tr><td colspan="4" style="text-align: center; font-style: italic;">Đầy đủ 3 phần: Trắc nghiệm, Đúng/Sai, Trả lời ngắn</td></tr>
+            <tr><td colspan="4"></td></tr>
+            <tr>
+              <td class="info-label">Họ tên học sinh:</td>
+              <td colspan="3">${fullname}</td>
+            </tr>
+            <tr>
+              <td class="info-label">Lớp:</td>
+              <td>${classroom}</td>
+              <td class="info-label">Số thứ tự:</td>
+              <td>${studentId}</td>
+            </tr>
+            <tr>
+              <td class="info-label">Điểm số:</td>
+              <td colspan="3" style="font-weight: bold; color: #dc2626; font-size: 13pt;">${finalScore} / 10</td>
+            </tr>
+            <tr><td colspan="4"></td></tr>
+            <thead>
+              <tr>
+                <th>Câu hỏi</th>
+                <th>Đáp án của học sinh</th>
+                <th>Đáp án chuẩn</th>
+                <th>Kết quả</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rows}
+            </tbody>
+          </table>
+        </body>
+        </html>
+      `;
+
+      const blob = new Blob([excelTemplate], { type: 'application/vnd.ms-excel;charset=utf-8' });
+      const downloadLink = document.createElement("a");
+      const sanitizedName = fullname.replace(/\s+/g, '_');
+      downloadLink.href = URL.createObjectURL(blob);
+      downloadLink.download = `KetQua_Hoa12_Full3Phan_${sanitizedName}_Lop${classroom}.xls`;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    }
+  </script>
+</body>
+</html>
